@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy]
 
 
   def index
@@ -12,7 +12,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    @task.save! #test
+    @task.save! #t
     flash[:success] = 'success registed'
     redirect_to action: 'index'
   end
@@ -26,8 +26,8 @@ class TasksController < ApplicationController
     redirect_to action: 'index'
   end
 
-  #def show
-  #end
+  def show
+  end
 
   def destroy
     @task.destroy! #t
