@@ -3,7 +3,7 @@ class TasksController < ApplicationController
 
 
   def index
-    @tasks = Task.all #t
+    @tasks = Task.all
   end
 
   def new
@@ -12,7 +12,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    @task.save! #t
+    @task.save
     flash[:success] = 'success registed'
     redirect_to action: 'index'
   end
@@ -21,7 +21,7 @@ class TasksController < ApplicationController
   end
 
   def update
-    @task.update!(task_params) #t
+    @task.update(task_params)
     flash[:succsess] = 'update successed!'
     redirect_to action: 'index'
   end
@@ -30,7 +30,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @task.destroy! #t
+    @task.destroy
     flash[:success] = 'delete!'
     redirect_to action: 'index'
   end
