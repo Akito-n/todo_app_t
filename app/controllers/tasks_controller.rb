@@ -1,4 +1,7 @@
 class TasksController < ApplicationController
+  before_action :set_task, only: [:edit, :update, :destroy]
+
+
   def index
     @tasks = Task.all #t
   end
@@ -11,16 +14,25 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.save! #test
     flash[:success] = 'success registed'
-     redirect_to action: 'index'
+    redirect_to action: 'index'
   end
 
   def edit
   end
 
-  def show
+  def update
+    @task.update!(task_params) #t
+    flash[:succsess] = 'update successed!'
+    redirect_to action: 'index'
   end
 
+  #def show
+  #end
+
   def destroy
+    @task.destroy! #t
+    flash[:success] = 'delete!'
+    redirect_to action: 'index'
   end
 
   private
@@ -28,4 +40,9 @@ class TasksController < ApplicationController
   def task_params
     params.require(:task).permit(:title, :description)
   end
+
+  def set_task
+    @task = Task.find(params[:id])
+  end
+
 end

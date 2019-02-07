@@ -1,5 +1,2 @@
 div
-  =form_with model:@task, local: true do |f|
-    =f.text_field :title, placeholder: "title"
-    =f.text_field :description, placeholder: "desscription"
-    =f.submit
+  =render 'form', {task: @task}
