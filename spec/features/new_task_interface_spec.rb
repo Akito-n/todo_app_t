@@ -20,11 +20,11 @@ RSpec.feature 'task_CRU', type: :feature do
 
   scenario 'edit task' do
     visit edit_task_path(task)
-    fill_in 'task_title', with: '編集テストtitle_edited'
-    fill_in 'task_description', with: '編集説明_edited'
+    fill_in 'task_title', with: 'title_edited'
+    fill_in 'task_description', with: 'description_edited'
     click_button 'Update Task'
     expect(page).to have_content '更新しました!'
-    expect(page).to have_content '編集テストtitle_edited'
+    expect(page).to have_content 'title_edited'
   end
 
   scenario 'delete task' do
