@@ -15,7 +15,7 @@ jobs:
         # 環境情報を追加
         environment:
           - POSTGRES_USER=ubuntu
-          - POSTGRES_DB=myapp_test
+          - POSTGRES_DB=todo_app_test
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -65,7 +65,6 @@ jobs:
 
             bundle exec rspec \
               --format progress \
-              --format RspecJunitFormatter \
               --out /tmp/test-results/rspec.xml \
               --format progress \
               $TEST_FILES
