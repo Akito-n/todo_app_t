@@ -11,10 +11,12 @@ jobs:
         environment:
           BUNDLER_VERSION: 2.0.1
           RAILS_ENV: test
+          PGHOST: 127.0.0.1
+          PGUSER: todo_app
       - image: circleci/postgres:9.4.12-alpine
         # 環境情報を追加
         environment:
-          - POSTGRES_USER=ubuntu
+          - POSTGRES_USER=todo_app
           - POSTGRES_DB=todo_app_test
 
       # Specify service dependencies here if necessary
