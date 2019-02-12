@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'task_CRU', type: :feature do
+RSpec.feature 'task_CRUD', type: :feature do
   let(:task) {create(:task)}
 
   scenario 'create new task' do
@@ -23,7 +23,7 @@ RSpec.feature 'task_CRU', type: :feature do
     fill_in 'task_title', with: 'title_edited'
     fill_in 'task_description', with: 'description_edited'
     click_button 'Update Task'
-    expect(page).to have_content '更新しました!'
+    expect(page).to have_content '更新しました'
     expect(page).to have_content 'title_edited'
   end
 
