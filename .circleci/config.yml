@@ -29,7 +29,6 @@ jobs:
     steps:
       - checkout
       # Download and cache dependencies
-      #
       - restore_cache:
           keys:
             - v2-dependencies-{{ checksum "Gemfile.lock" }}
