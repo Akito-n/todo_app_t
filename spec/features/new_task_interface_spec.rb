@@ -4,12 +4,9 @@ RSpec.feature 'task_CRUD', type: :feature do
   let(:task) {create(:task)}
 
   scenario 'create new task' do
-    #ページにアクセス
     visit root_path
     expect {
-      #新規作成ボタンのクリック
       click_link '新規作成'
-      #titleとdesctiptionに文字入れる->保存
       fill_in 'task_title', with: 'new title'
       fill_in 'task_description', with: 'new description'
       click_button 'Create Task'
