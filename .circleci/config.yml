@@ -6,12 +6,6 @@ jobs:
     steps:
       - checkout
       - run: echo "A first hello"
-machine:
-  timezone:
-    Asia/Tokyo
-  ruby:
-    version:
-      2.3.7
 test:
   post:
     - rspec
