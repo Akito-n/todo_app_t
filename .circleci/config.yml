@@ -14,4 +14,4 @@ machine:
       2.3.7
 test:
   post:
-    - bundle exec rspec
+    - rspec
