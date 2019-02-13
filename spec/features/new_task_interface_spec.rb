@@ -44,12 +44,23 @@ RSpec.feature 'task_CRUD', type: :feature do
     task_array = [task1, task2, task3]
     expect(Task.order('created_at DESC')).to eq task_array
   end
+  context 'validation' do
+    before do
+      visit new_task_path
+    end
+    scenario 'title is empty' do
+      fill_in 'task_description', with: 'new description'
+      click_button '登録'
+      expect(page).to have_content 'titleを入力してください'
+    end
 
-  scenario 'validation if title is empty' do
-    visit root_path
-    fill_in 'task_description', with: 'new description'
-    click_button '登録'
-    expect(page).to have_content 'titleを入力してください'
+    scenario 'title over max length' do
+      title = 'a' * 51
+      fill_in 'task_title', with: title
+      click_button '登録'
+      expect(page).to have_content 'titleは50文字以内で入力してください'
+    end
+
   end
 
 end
