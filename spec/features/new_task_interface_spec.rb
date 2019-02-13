@@ -3,6 +3,10 @@ require 'rails_helper'
 RSpec.feature 'task_CRUD', type: :feature do
   let(:task) {create(:task)}
 
+  let(:task1) {create(:order_task, :create2013_01_01)}
+  let(:task2) {create(:order_task, :create2012_01_01)}
+  let(:task3) {create(:order_task, :create2011_01_01)}
+
   scenario 'create new task' do
     visit root_path
     expect {
@@ -35,6 +39,12 @@ RSpec.feature 'task_CRUD', type: :feature do
 
 
   scenario 'order by created_at DESC' do
+    visit root_path
+    task2
+    task1
+    task3
+    taskarray = [task1, task2, task3]
+    expect(Task.all.order('created_at DESC')).to eq taskarray
   end
 
 end
