@@ -9,8 +9,8 @@ RSpec.feature 'task_CRUD', type: :feature do
       click_link '新規作成'
       fill_in 'task_title', with: 'new title'
       fill_in 'task_description', with: 'new description'
-      click_button 'Create Task'
-      expect(page).to have_content '作成しました！'
+      click_button '登録する'
+      expect(page).to have_css '.alert'
     }.to change { Task.count }.by(1)
 
   end
@@ -19,8 +19,8 @@ RSpec.feature 'task_CRUD', type: :feature do
     visit edit_task_path(task)
     fill_in 'task_title', with: 'title_edited'
     fill_in 'task_description', with: 'description_edited'
-    click_button 'Update Task'
-    expect(page).to have_content '更新しました'
+    click_button '更新する'
+    expect(page).to have_css '.alert'
     expect(page).to have_content 'title_edited'
   end
 
@@ -29,7 +29,7 @@ RSpec.feature 'task_CRUD', type: :feature do
     visit root_path
     expect {
       click_link '削除'
-      expect(page).to have_content '削除しました！'
+      expect(page).to have_css '.alert'
     }.to change { Task.count }.by(-1)
   end
 

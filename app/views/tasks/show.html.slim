@@ -1,8 +1,8 @@
 div
-  h3 タイトル
+  h3 =t('.title')
   p= @task.title
-  h4 説明
+  h4 =t('.description')
   p= @task.description
 
 
-= link_to '一覧に戻る', root_path
+= link_to t('.back_to_index'), root_path

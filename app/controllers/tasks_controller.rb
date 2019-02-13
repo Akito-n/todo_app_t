@@ -13,7 +13,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.save
-    flash[:success] = '作成しました！'
+    flash[:success] = t('.succsess')
     redirect_to action: 'index'
   end
 
@@ -22,7 +22,7 @@ class TasksController < ApplicationController
 
   def update
     @task.update(task_params)
-    flash[:succsess] = '更新しました！'
+    flash[:succsess] = t('.edit')
     redirect_to action: 'index'
   end
 
@@ -31,7 +31,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    flash[:success] = '削除しました！'
+    flash[:success] = t('.delete')
     redirect_to action: 'index'
   end
 
