@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'task_CRUD', type: :feature do
   let(:task) {create(:task)}
-  let(:task1) {create(:order_task, :created2013_01_01)}
+  let(:task1) {create(:order_task, :create2013_01_01)}
   let(:task2) {create(:order_task, :create2012_01_01)}
   let(:task3) {create(:order_task, :create2011_01_01)}
 
