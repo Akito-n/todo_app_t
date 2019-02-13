@@ -16,10 +16,8 @@ FactoryBot.define do
       created_at {"2012-01-01 00:00:00"}
     end
 
-    trait :create2013_01_01 do
+    trait :created2013_01_01 do
       created_at {"2013-01-01 00:00:00"}
     end
   end
-
-
 end
