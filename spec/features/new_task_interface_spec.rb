@@ -12,7 +12,6 @@ RSpec.feature 'task_CRUD', type: :feature do
       click_button 'Create Task'
       expect(page).to have_css '.alert'
     }.to change { Task.count }.by(1)
-
   end
 
   scenario 'edit task' do
