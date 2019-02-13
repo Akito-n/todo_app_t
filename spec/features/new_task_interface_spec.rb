@@ -15,6 +15,7 @@ RSpec.feature 'task_CRUD', type: :feature do
       fill_in 'task_description', with: 'new description'
       click_button '登録する'
       expect(page).to have_css '.alert'
+      expect(page).to have_content 'new title'
     }.to change { Task.count }.by(1)
 
   end
