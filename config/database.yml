@@ -14,7 +14,9 @@
 # Configure Using Gemfile
 # gem 'pg'
 #
+#
 default: &default
+  #username: todo_app
   adapter: postgresql
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
@@ -81,5 +83,4 @@ test:
 production:
   <<: *default
   database: todo_app_production
-  username: todo_app
   password: <%= ENV['TODO_APP_DATABASE_PASSWORD'] %>
