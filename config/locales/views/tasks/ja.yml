@@ -2,10 +2,10 @@ ja:
   tasks:
     index:
       title: 'タスク一覧'
-      new_task_path: '新規作成'
-      edit_task_path: '編集'
-      delete_task_path: '削除'
+      new: '新規作成'
+      edit: '編集'
+      delete: '削除'
     show:
       title: 'タイトル'
       description: '説明'
-      back_to_index: '一覧に戻る'
+      back: '一覧に戻る'
