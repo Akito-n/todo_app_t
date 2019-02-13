@@ -12,7 +12,11 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+<<<<<<< HEAD
     
+=======
+<
+>>>>>>> 42818ec94fa31390bccc8c66d34a270fbb9c2949
     if @task.save
       flash[:success] = 'success registed'
       redirect_to action: 'index'
