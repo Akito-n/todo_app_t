@@ -12,18 +12,24 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    @task.save
-    flash[:success] = t('.succsess')
-    redirect_to action: 'index'
+    if @task.save
+      flash[:success] = 'success registed'
+      redirect_to action: 'index'
+    else
+      render 'new'
+    end
   end
 
   def edit
   end
 
   def update
-    @task.update(task_params)
-    flash[:succsess] = t('.edit')
-    redirect_to action: 'index'
+    if @task.update(task_params)
+      flash[:succsess] = 'update successed!'
+      redirect_to action: 'index'
+    else
+      render 'edit'
+    end
   end
 
   def show
@@ -31,7 +37,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    flash[:success] = t('.delete')
+    flash[:success] = 'delete!'
     redirect_to action: 'index'
   end
 
