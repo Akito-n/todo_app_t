@@ -3,7 +3,7 @@ class TasksController < ApplicationController
 
 
   def index
-    @tasks = Task.all.order('created_at DESC')
+    @tasks = Task.all
   end
 
   def new
@@ -13,7 +13,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save
-      flash[:success] = t('.succsess')
+      flash[:success] = 'success registed'
       redirect_to action: 'index'
     else
       render 'new'
@@ -25,11 +25,11 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      flash[:succsess] = t('.edit')
+      flash[:succsess] = 'update successed!'
       redirect_to action: 'index'
     else
       render 'edit'
-    end 
+    end
   end
 
   def show
@@ -37,7 +37,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    flash[:success] = t('.delete')
+    flash[:success] = 'delete!'
     redirect_to action: 'index'
   end
 
