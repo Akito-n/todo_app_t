@@ -43,7 +43,6 @@ RSpec.feature 'task_CRUD', type: :feature do
     task2012
     task2011
     visit root_path
-    #expect(Task.order('created_at DESC')).to eq task_array
     expect(page.html).to match(/.*#{task2013.title}.*#{task2012.title}.*#{task2011.title}/)
   end
 end
