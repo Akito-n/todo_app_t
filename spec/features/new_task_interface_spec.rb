@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.feature 'task_CRUD', type: :feature do
   let(:task) {create(:task)}
-  let(:task1) {create(:order_task, :created2013_01_01)}
-  let(:task2) {create(:order_task, :create2012_01_01)}
-  let(:task3) {create(:order_task, :create2011_01_01)}
+  let(:task2013) {create(:order_task, :created2013_01_01)}
+  let(:task2012) {create(:order_task, :create2012_01_01)}
+  let(:task2011) {create(:order_task, :create2011_01_01)}
 
   scenario 'create new task' do
     visit root_path
@@ -38,10 +38,10 @@ RSpec.feature 'task_CRUD', type: :feature do
 
 
   scenario 'order by created_at DESC' do
-    task2
-    task1
-    task3
-    task_array = [task1, task2, task3]
+    task2012
+    task2013
+    task2011
+    task_array = [task2013, task2012, task2011]
     expect(Task.order('created_at DESC')).to eq task_array
   end
 
