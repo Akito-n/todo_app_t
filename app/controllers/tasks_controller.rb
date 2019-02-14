@@ -3,7 +3,7 @@ class TasksController < ApplicationController
 
 
   def index
-    @tasks = Task.all
+    @tasks = Task.all.order('created_at DESC')
   end
 
   def new
@@ -13,8 +13,8 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     if @task.save
-      redirect_to action: 'index'
       flash[:success] = t('.succsess')
+      redirect_to action: 'index'
     else
       render 'new'
     end
@@ -25,8 +25,8 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to action: 'index'
       flash[:succsess] = t('.edit')
+      redirect_to action: 'index'
     else
       render 'edit'
     end

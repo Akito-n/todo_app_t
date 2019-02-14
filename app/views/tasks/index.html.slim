@@ -4,5 +4,6 @@ h1 =t('.title')
   div
     = link_to task.title, task_path(task)
     = task.description
+    p= l(task.created_at, format: :default)
     = link_to t('.edit'), edit_task_path(task)
     = link_to t('.delete'), task_path(task),method: :delete, data: {confirm: '削除しますか？'}
