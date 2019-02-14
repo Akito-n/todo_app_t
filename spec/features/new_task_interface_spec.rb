@@ -61,6 +61,14 @@ RSpec.feature 'task_CRUD', type: :feature do
       expect(page).to have_content 'titleは50文字以内で入力してください'
     end
 
+    scenario 'description over max length' do
+      description = 'a' *  201
+      fill_in 'task_title', with: 'title'
+      fill_in 'task_description', with: description
+      click_button '登録'
+      expect(page).to have_content 'descriptionは200文字以内で入力してください'
+    end
+
   end
 
 end
