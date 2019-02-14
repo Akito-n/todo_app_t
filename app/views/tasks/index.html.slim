@@ -1,9 +1,9 @@
 h1 =t('.title')
-= link_to t('.new_task_path'), new_task_path
+= link_to t('.new'), new_task_path
 - @tasks.each do |task|
   div
     = link_to task.title, task_path(task)
     = task.description
     p= l(task.created_at, format: :default)
-    = link_to t('.edit_task_path'), edit_task_path(task)
-    = link_to t('.delete_task_path'), task_path(task),method: :delete, data: {confirm: '削除しますか？'}
+    = link_to t('.edit'), edit_task_path(task)
+    = link_to t('.delete'), task_path(task),method: :delete, data: {confirm: '削除しますか？'}
