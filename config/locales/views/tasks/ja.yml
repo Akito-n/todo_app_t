@@ -11,4 +11,4 @@ ja:
     show:
       title: 'タイトル'
       description: '説明'
-      back_to_index: '一覧に戻る'
+      back: '一覧に戻る'
