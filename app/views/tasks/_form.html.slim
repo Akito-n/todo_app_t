@@ -1,4 +1,4 @@
-=form_with model:task, local: true do |f|
-  =f.text_field :title, placeholder: "title", value: task.title
-  =f.text_field :description, placeholder: "description", value: task.description
+=form_with model:task, :builder => CustomFormBuilder, local: true do |f|
+  p=f.text_field :title, placeholder: "title", value: task.title
+  p=f.text_field :description, placeholder: "desscription", value: task.description
   =f.submit
