@@ -29,4 +29,35 @@ Things you may want to cover:
   $ Password: "your password"
 ```
 
+4. Go to the project folder
 
+```
+$ cd ~/yourproject
+```   
+
+5. create app on heroku
+
+```
+$ heroku create "Your App Name"
+```
+
+ * App name must be uniq
+
+If you want to check the name of the application
+
+
+```
+$ heroku apps
+```
+
+After creating the Heroku application, **heroku** is created as a remote repository in git.
+
+```
+$ git remote -v
+```
+
+Deploy your app on heroku
+
+```
+$ git push heroku "Your App name"
+```
