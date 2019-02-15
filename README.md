@@ -7,21 +7,9 @@ Things you may want to cover:
 
 * Ruby version 2.5.3
 
-* System dependencies
-
-* Configuration
-
 * Database creation PostgreSQL 11.1
 
-* Database initialization
-
 * How to run the test suite CircleCI
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 
 ### schema
 
