@@ -22,41 +22,11 @@ Things you may want to cover:
 2. install "heroku-cli" [installer](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
 3. log in to heroku
 
-   ```   
+```
   $ heroku login -i
-
   $ Enter your Heroku credentials.
   $ Email "your email"
   $ Password: "your password"
-
-   ```
-
-4. Go to the project folder
-```
-$ cd ~/yourproject
-```   
-5. create app on heroku
-```
-$ heroku create "Your App Name"
 ```
 
- * App name must be uniq
 
-If you want to check the name of the application
-
-
-```
-$ heroku apps
-```
-
-After creating the Heroku application, **heroku** is created as a remote repository in git.
-
-```
-$ git remote -v
-```
-
-Deploy your app on heroku
-
-```
-$ git push heroku "Your App name"
-```
