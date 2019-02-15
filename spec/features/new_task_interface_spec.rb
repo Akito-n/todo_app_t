@@ -42,18 +42,12 @@ RSpec.feature 'task_CRUD', type: :feature do
 
 
   scenario 'order by created_at DESC' do
-
     task2013
     task2012
     task2011
     visit root_path
     expect(page.html).to match(/.*#{task2013.title}.*#{task2012.title}.*#{task2011.title}/)
   end
-<<<<<<< HEAD
-  
-=======
-
->>>>>>> b5a335eeb9b5ed1ee80a93eaa93ad700f32a9a88
   context 'validation' do
     before do
       visit new_task_path
