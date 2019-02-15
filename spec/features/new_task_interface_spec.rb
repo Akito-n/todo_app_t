@@ -44,6 +44,7 @@ RSpec.feature 'task_CRUD', type: :feature do
     visit root_path
     expect(page.html).to match(/.*#{task2013.title}.*#{task2012.title}.*#{task2011.title}/)
   end
+  
   context 'validation' do
     before do
       visit new_task_path
