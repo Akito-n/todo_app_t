@@ -12,3 +12,7 @@ ja:
       title: 'タイトル'
       description: '説明'
       back: '一覧に戻る'
+    form:
+      title: 'タイトル'
+      description: '説明'
+      submit: 登録する
