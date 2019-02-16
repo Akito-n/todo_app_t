@@ -1,11 +1,19 @@
 div.content
-  h1=t('.title')
-  = link_to t('.new'), new_task_path
+  div.columns
+    div.column
+      h1=t('.title')
+      = link_to t('.new'), new_task_path, class: 'button is-primary'
+    div.column
+
+  = form_with url: root_path, method: :get, local: true do |q|
+    div.select
+      =q.select :sort, { t('.default') => 'created_at', t('.asc') => 'asc', t('.desc') => 'desc' }
+    =q.submit t('.sort'), name: nil, class: 'button'
   - @tasks.each do |task|
     div
       = link_to task.title, task_path(task)
       = task.description
       = l(task.created_at, format: :default)
-      = task.due_date
+      p= task.term
       = link_to t('.edit'), edit_task_path(task)
       = link_to t('.delete'), task_path(task),method: :delete, data: {confirm: '削除しますか？'}
