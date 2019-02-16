@@ -15,3 +15,4 @@ ja:
     form:
       title: 'タイトル'
       description: '説明'
+      limit: '期限'

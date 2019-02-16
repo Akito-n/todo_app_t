@@ -1,13 +1,17 @@
 div.field
   =form_with model:task, :builder => CustomFormBuilder, local: true do |f|
-    div
+    div.field
       =f.label :title, t('.title'), class: 'label'
       div.control
         =f.text_field :title, placeholder: "ToDo Title", value: task.title, class: 'input'
-    div
+    div.field
       =f.label :description, t('.description'), class: 'label'
       div.control
         =f.text_field :description, placeholder: "Description", value: task.description, class: 'input'
-    div.field.is-grouped
+    div.field
+      =f.label :due_date, t('.limit'), class: 'label'
+      div.control
+        =f.date_field :due_date, class:'custom-date_field'
+    div.field
       div.control
         =f.submit class: 'button is-link'
