@@ -9,7 +9,7 @@ div.field
       div.control
         =f.text_field :description, placeholder: "Description", value: task.description, class: 'input'
     div.field
-      =f.label :term, t('.limit'), class: 'label', value: task.term
+      =f.label :term, t('.limit'), class: 'label'
       div.control
         =f.date_field :term, class:'custom-date_field'
     div.field
