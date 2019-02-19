@@ -4,7 +4,6 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.sort(params[:sort])
-    
   end
 
   def new
@@ -46,7 +45,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :description, :term)
+    params.require(:task).permit(:title, :description, :term, :status)
   end
 
   def set_task
