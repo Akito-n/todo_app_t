@@ -3,13 +3,11 @@ class Task < ApplicationRecord
   validates :description, length: { maximum: 200 }
 
 
-  def self.sort(q)
+  def self.sort(q='created_at DESC')
     if q == 'asc'
       q = 'term ASC'
     elsif q == 'desc'
       q = 'term DESC'
-    else
-      q ='created_at DESC'
     end
     order(q)
   end
