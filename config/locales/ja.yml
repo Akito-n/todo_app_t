@@ -23,3 +23,6 @@ ja:
       title: 'タイトル'
       description: '説明'
       limit: '期限'
+      waiting: '未着手'
+      warking: '着手'
+      completed: '完了'
