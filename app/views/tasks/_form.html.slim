@@ -9,9 +9,9 @@ div.field
       div.control
         =f.text_field :description, placeholder: "Description", value: task.description, class: 'input'
     div.field
-      =f.label :due_date, t('.limit'), class: 'label'
+      =f.label :term, t('.limit'), class: 'label', value: task.term
       div.control
-        =f.date_field :due_date, class:'custom-date_field'
+        =f.date_field :term, class:'custom-date_field'
     div.field
       div.control
         =f.submit class: 'button is-link'
