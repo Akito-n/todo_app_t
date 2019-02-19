@@ -11,10 +11,8 @@ ja:
       new: '新規作成'
       edit: '編集'
       delete: '削除'
-      sort: 'ソートする'
-      default: '作成順'
-      asc: '終了期限の近い順'
-      desc: '終了期限の遠い順'
+      term: '期日'
+      created_at: '作成日'
     show:
       title: 'タイトル'
       description: '説明'

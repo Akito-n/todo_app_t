@@ -48,8 +48,6 @@ RSpec.feature 'task_CRUD', type: :feature do
     task2012
     task2011
     visit root_path
-    select '作成順', from: 'sort'
-    click_button 'ソートする'
     expect(page.html).to match(/.*#{task2013.title}.*#{task2012.title}.*#{task2011.title}/)
   end
 
@@ -90,13 +88,12 @@ RSpec.feature 'task_CRUD', type: :feature do
     end
 
     scenario 'Order term ASC' do
-      select '終了期限の近い順', from: 'sort'
-      click_button 'ソートする'
+      click_link '期日'
       expect(page.html).to match(/.*#{task01.title}.*#{task02.title}.*#{task03.title}.*#{task04.title}.*#{task05.title}/)
     end
     scenario 'Order term DESC' do
-      select '終了期限の遠い順', from: 'sort'
-      click_button 'ソートする'
+      click_link '期日'
+      click_link '期日'
       expect(page.html).to match(/.*#{task05.title}.*#{task04.title}.*#{task03.title}.*#{task02.title}.*#{task01.title}/)
     end
   end

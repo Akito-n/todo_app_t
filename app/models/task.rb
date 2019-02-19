@@ -13,6 +13,7 @@ class Task < ApplicationRecord
       q = 'term DESC'
     end
     order(q)
+    q
   end
 
 end
