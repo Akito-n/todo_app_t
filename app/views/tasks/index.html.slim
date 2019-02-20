@@ -7,7 +7,7 @@ div.content
 
   = form_with url: root_path, method: :get, local: true do |q|
     div.select
-      =q.select :sort, { t('.default') => 'created_at DESC', t('.asc') => 'asc', t('.desc') => 'desc' }, :selected => params[:sort] ||= 'created_at DESC'
+      =q.select :sort, { t('.default') => 'created_at DESC', t('.asc') => 'term ASC', t('.desc') => 'term DESC' }, :selected => params[:sort] ||= 'created_at DESC'
     =q.submit t('.sort'), name: nil, class: 'button'
   - @tasks.each do |task|
     div

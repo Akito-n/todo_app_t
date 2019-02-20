@@ -3,7 +3,7 @@ class TasksController < ApplicationController
 
 
   def index
-    @tasks = Task.sort(params[:sort])
+    @tasks = Task.sort_term(params[:sort])
   end
 
   def new
