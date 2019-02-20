@@ -6,6 +6,7 @@ RSpec.feature 'task_CRUD', type: :feature do
   let(:task2012) {create(:order_task, :create2012_01_01)}
   let(:task2011) {create(:order_task, :create2011_01_01)}
 
+
   scenario 'create new task' do
     visit root_path
     expect {
@@ -42,8 +43,11 @@ RSpec.feature 'task_CRUD', type: :feature do
     task2012
     task2011
     visit root_path
+    select '作成順', from: 'sort'
+    click_button 'ソートする'
     expect(page.html).to match(/.*#{task2013.title}.*#{task2012.title}.*#{task2011.title}/)
   end
+
   context 'validation' do
     before do
       visit new_task_path
@@ -69,4 +73,27 @@ RSpec.feature 'task_CRUD', type: :feature do
       expect(page).to have_content 'descriptionは200文字以内で入力してください'
     end
   end
+
+  context 'Sort task　by term' do
+      let!(:task01) {create(:sort_term_task, :term01)}
+      let!(:task02) {create(:sort_term_task, :term02)}
+      let!(:task03) {create(:sort_term_task, :term03)}
+      let!(:task04) {create(:sort_term_task, :term04)}
+      let!(:task05) {create(:sort_term_task, :term05)}
+    before do
+      visit root_path
+    end
+
+    scenario 'Order term ASC' do
+      select '終了期限の近い順', from: 'sort'
+      click_button 'ソートする'
+      expect(page.html).to match(/.*#{task01.title}.*#{task02.title}.*#{task03.title}.*#{task04.title}.*#{task05.title}/)
+    end
+    scenario 'Order term DESC' do
+      select '終了期限の遠い順', from: 'sort'
+      click_button 'ソートする'
+      expect(page.html).to match(/.*#{task05.title}.*#{task04.title}.*#{task03.title}.*#{task02.title}.*#{task01.title}/)
+    end
+  end
+
 end

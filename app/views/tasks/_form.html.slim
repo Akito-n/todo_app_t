@@ -1,4 +1,17 @@
-=form_with model:task, :builder => CustomFormBuilder, local: true do |f|
-  p=f.text_field :title, placeholder: "title", value: task.title
-  p=f.text_field :description, placeholder: "description", value: task.description
-  =f.submit
+div.field
+  =form_with model:task, :builder => CustomFormBuilder, local: true do |f|
+    div.field
+      =f.label :title, t('.title'), class: 'label'
+      div.control
+        =f.text_field :title, placeholder: "ToDo Title", value: task.title, class: 'input'
+    div.field
+      =f.label :description, t('.description'), class: 'label'
+      div.control
+        =f.text_field :description, placeholder: "Description", value: task.description, class: 'input'
+    div.field
+      =f.label :term, t('.limit'), class: 'label'
+      div.control
+        =f.date_field :term, class:'custom-date_field'
+    div.field
+      div.control
+        =f.submit class: 'button is-link'
