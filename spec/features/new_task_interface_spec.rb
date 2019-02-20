@@ -6,11 +6,6 @@ RSpec.feature 'task_CRUD', type: :feature do
   let(:task2012) {create(:order_task, :create2012_01_01)}
   let(:task2011) {create(:order_task, :create2011_01_01)}
 
-  let(:task01) {create(:sort_term_task, :term01)}
-  let(:task02) {create(:sort_term_task, :term02)}
-  let(:task03) {create(:sort_term_task, :term03)}
-  let(:task04) {create(:sort_term_task, :term04)}
-  let(:task05) {create(:sort_term_task, :term05)}
 
   scenario 'create new task' do
     visit root_path
@@ -80,12 +75,12 @@ RSpec.feature 'task_CRUD', type: :feature do
   end
 
   context 'Sort task　by term' do
+      let!(:task01) {create(:sort_term_task, :term01)}
+      let!(:task02) {create(:sort_term_task, :term02)}
+      let!(:task03) {create(:sort_term_task, :term03)}
+      let!(:task04) {create(:sort_term_task, :term04)}
+      let!(:task05) {create(:sort_term_task, :term05)}
     before do
-      task01
-      task02
-      task03
-      task04
-      task05
       visit root_path
     end
 
