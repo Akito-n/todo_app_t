@@ -6,14 +6,5 @@ class Task < ApplicationRecord
   enum status: {waiting: 0, warking: 1, completed: 2}
 
 
-  def self.sort(q='created_at DESC')
-    if q == 'asc'
-      q = 'term ASC'
-    elsif q == 'desc'
-      q = 'term DESC'
-    end
-    order(q)
-    q
-  end
 
 end
