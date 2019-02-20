@@ -98,4 +98,27 @@ RSpec.feature 'task_CRUD', type: :feature do
     end
   end
 
+  context 'Search task by Ransack' do
+      let!(:task01) {create(:sort_term_task, :term01)}
+      let!(:task02) {create(:sort_term_task, :term02)}
+      let!(:task03) {create(:sort_term_task, :term03)}
+      let!(:task04) {create(:sort_term_task, :term04)}
+      let!(:task05) {create(:sort_term_task, :term05)}
+
+      before do
+        visit root_path
+      end
+
+      scenario 'search title' do
+        fill_in 'q_title_cont', with: '３'
+        click_on '検索'
+        expect(page.html).to match(/.*#{task03.title}.*/)
+      end
+
+      scenario 'search status'do
+        select '完了', from: 'q_status_eq'
+        click_on '検索'
+        expect(page.html).to match(/.*#{task02.title}.*/)
+      end
+    end
 end
