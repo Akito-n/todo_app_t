@@ -32,4 +32,28 @@ describe Task do
     end
   end
 
+  describe 'Search' do
+    let!(:task01) {create(:sort_term_task, :term01)}
+    let!(:task02) {create(:sort_term_task, :term02)}
+    let!(:task03) {create(:sort_term_task, :term03)}
+    let!(:task04) {create(:sort_term_task, :term04)}
+    let!(:task05) {create(:sort_term_task, :term05)}
+
+    it 'is 1　result Search for title_cont by "３" ' do
+      @params = Hash.new
+      @params[:q] = Hash.new
+      @params[:q][:title_cont] = '３'
+      expect(Task.ransack(@params[:q]).result.count).to eq(1)
+    end
+
+    it 'is 1　result Search for status_eq by 2 ' do
+      @params = Hash.new
+      @params[:q] = Hash.new
+      @params[:q][:status_eq] = 2
+      expect(Task.ransack(@params[:q]).result.count).to eq(1)
+    end
+
+
+  end
+
 end
