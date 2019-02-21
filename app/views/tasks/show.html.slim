@@ -1,6 +1,8 @@
-div
-  h3 =t('.title')
-  p= @task.title
-  h4 =t('.description')
-  p= @task.description
-= link_to t('.back'), root_path
+.content
+  .columns
+    .column
+      .subtitle.is-5
+        h3= @task.title
+      h4 =t('.description')
+      p= @task.description
+      = link_to t('.back'), root_path
