@@ -14,7 +14,7 @@ div.field
         =f.date_field :term, class:'custom-date_field'
     div.field
       div.select
-        =f.select :status, Task.statuses.map{ |key, val| [t(".#{key}"), key] }
+        =f.select :status, Task.statuses_i18n.map{ |key, val| [Task.statuses_i18n[key], key] }
     div.field
       div.control
         =f.submit class: 'button is-primary'

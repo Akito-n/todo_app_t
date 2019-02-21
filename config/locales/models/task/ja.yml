@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    models:
+      task: タスク
+    attributes:
+      task:
+        status: 対応状況
+  enums:
+    task:
+      status: 
+        waiting: 未着手
+        warking: 着手
+        completed: 完了

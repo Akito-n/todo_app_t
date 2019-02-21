@@ -16,7 +16,7 @@ div.content
             th =t('tasks.show.description')
             th =sort_link(@search, :term, t('.term'))
             th =sort_link(@search, :created_at, t('.created_at'),default_order: :asc)
-            th 進行状況
+            th =t('.status')
             th
             th
         tbody
@@ -26,6 +26,6 @@ div.content
               td = task.description
               td = task.term
               td = l(task.created_at, format: :default)
-              td = t("tasks.form.#{task.status}")
+              td = t(Task.statuses_i18n[task.status])
               td = link_to t('.edit'), edit_task_path(task)
               td = link_to t('.delete'), task_path(task),method: :delete, data: {confirm: '削除しますか？'}

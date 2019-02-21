@@ -9,6 +9,7 @@ ja:
         formats:
           default: '%Y/%m/%d'
       new: '新規作成'
+      status: '対応状況'
       edit: '編集'
       delete: '削除'
       term: '期日'
@@ -21,6 +22,3 @@ ja:
       title: 'タイトル'
       description: '説明'
       limit: '期限'
-      waiting: '未着手'
-      warking: '着手'
-      completed: '完了'
