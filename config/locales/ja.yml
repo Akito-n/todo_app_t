@@ -21,3 +21,9 @@ ja:
       title: 'タイトル'
       description: '説明'
       limit: '期限'
+  views:
+    pagination:
+      first: '最初'
+      last: '最後'
+      next: '次'
+      previous: '前'

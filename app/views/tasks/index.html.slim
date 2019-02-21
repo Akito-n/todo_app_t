@@ -6,9 +6,10 @@ div.content
     div.column
   div.columns
   =render 'search_form', { search: @search }
-
-  div.columns
-    div.column
+  .columns
+    .column.is-3.is-offset-9=paginate @tasks
+  .columns
+    .column
       table.table.is-striped
         thead
           tr
@@ -31,3 +32,5 @@ div.content
               td =t(Task.priorities_i18n[task.priority])
               td =link_to t('.edit'), edit_task_path(task)
               td =link_to t('.delete'), task_path(task),method: :delete, data: {confirm: '削除しますか？'}
+  .columns
+    .column.is-3.is-offset-9=paginate @tasks
