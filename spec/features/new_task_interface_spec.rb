@@ -110,10 +110,10 @@ RSpec.feature 'task_CRUD', type: :feature do
         expect(page.html).to match(/.*#{task03.title}.*/)
       end
 
-      scenario 'search status'do
-        select '完了', from: 'q_status_eq'
-        click_on '検索'
-        expect(page.html).to match(/.*#{task02.title}.*/)
-      end
+       scenario 'search status'do
+         select '完了', from: 'q_status_eq'
+         click_on '検索'
+         expect(page.html).to match(/.*#{task02.title}.*/)
+       end
     end
 end

@@ -34,12 +34,12 @@ FactoryBot.define do
     trait :term02 do
       title {'２月'}
       term {'2019-02-01'}
-      status {'completed'}
+      status {2}
     end
     trait :term03 do
       title {'３月'}
       term {'2019-03-01'}
-      status {'warking'}
+      status {1}
     end
     trait :term04 do
       title {'4月'}
