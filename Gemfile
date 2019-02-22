@@ -40,7 +40,7 @@ gem 'jquery-rails'
 gem 'ransack'
 gem 'enum_help'
 gem 'kaminari'
-gem 'faker'
+#gem 'faker'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -61,7 +61,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry-byebug'
-  #gem 'faker'
+  gem 'faker'
 end
 
 group :test do
