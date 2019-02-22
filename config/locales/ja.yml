@@ -9,7 +9,6 @@ ja:
         formats:
           default: '%Y/%m/%d'
       new: '新規作成'
-      status: '対応状況'
       edit: '編集'
       delete: '削除'
       term: '期日'

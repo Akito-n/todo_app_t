@@ -86,11 +86,29 @@ RSpec.feature 'task_CRUD', type: :feature do
       click_link '期日'
       expect(page.html).to match(/.*#{task01.title}.*#{task02.title}.*#{task03.title}.*#{task04.title}.*#{task05.title}/)
     end
+
     scenario 'Order term DESC' do
       click_link '期日'
       click_link '期日'
       expect(page.html).to match(/.*#{task05.title}.*#{task04.title}.*#{task03.title}.*#{task02.title}.*#{task01.title}/)
     end
+
+  end
+  context 'Sort task priority' do
+
+    let!(:task2013) {create(:order_task, :created2013_01_01)}
+    let!(:task2012) {create(:order_task, :create2012_01_01)}
+    let!(:task2011) {create(:order_task, :create2011_01_01)}
+
+
+    scenario 'Order priority DESC and ASC' do
+      visit root_path
+      click_link '優先度'
+      expect(page.html).to match(/.*#{task2011.title}.*#{task2012.title}.*#{task2013.title}/)
+      click_link '優先度'
+      expect(page.html).to match(/.*#{task2013.title}.*#{task2012.title}.*#{task2011.title}/)
+    end
+
   end
 
   context 'Search task by Ransack' do
