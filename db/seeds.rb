@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+10000.times do |n|
+  title = Faker::Games::Pokemon.name
+  description = Faker::Book.title
+  Task.create!(
+    title: title,
+    description: description,
+    term: Faker::Time.between(10.years.ago, 0.years.ago, :all).to_s[0, 10]
+  )
+end

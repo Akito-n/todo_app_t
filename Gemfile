@@ -37,7 +37,8 @@ gem 'slim-rails', '3.1.3'
 gem 'rails-i18n', '~> 5.1'
 gem 'bulma-rails', "~> 0.7.4"
 gem 'jquery-rails'
-
+gem 'ransack'
+gem 'enum_help'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -58,6 +59,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry-byebug'
+  gem 'faker'
 end
 
 group :test do

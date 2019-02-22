@@ -43,8 +43,6 @@ RSpec.feature 'task_CRUD', type: :feature do
     task2012
     task2011
     visit root_path
-    select '作成順', from: 'sort'
-    click_button 'ソートする'
     expect(page.html).to match(/.*#{task2013.title}.*#{task2012.title}.*#{task2011.title}/)
   end
 
@@ -85,15 +83,37 @@ RSpec.feature 'task_CRUD', type: :feature do
     end
 
     scenario 'Order term ASC' do
-      select '終了期限の近い順', from: 'sort'
-      click_button 'ソートする'
+      click_link '期日'
       expect(page.html).to match(/.*#{task01.title}.*#{task02.title}.*#{task03.title}.*#{task04.title}.*#{task05.title}/)
     end
     scenario 'Order term DESC' do
-      select '終了期限の遠い順', from: 'sort'
-      click_button 'ソートする'
+      click_link '期日'
+      click_link '期日'
       expect(page.html).to match(/.*#{task05.title}.*#{task04.title}.*#{task03.title}.*#{task02.title}.*#{task01.title}/)
     end
   end
 
+  context 'Search task by Ransack' do
+      let!(:task01) {create(:sort_term_task, :term01)}
+      let!(:task02) {create(:sort_term_task, :term02)}
+      let!(:task03) {create(:sort_term_task, :term03)}
+      let!(:task04) {create(:sort_term_task, :term04)}
+      let!(:task05) {create(:sort_term_task, :term05)}
+
+      before do
+        visit root_path
+      end
+
+      scenario 'search title' do
+        fill_in 'q_title_cont', with: '３'
+        click_on '検索'
+        expect(page.html).to match(/.*#{task03.title}.*/)
+      end
+
+       scenario 'search status'do
+         select '完了', from: 'q_status_eq'
+         click_on '検索'
+         expect(page.html).to match(/.*#{task02.title}.*/)
+       end
+    end
 end
