@@ -48,8 +48,5 @@ describe Task do
       @params = {q: {status_eq: 2 } }
       expect(Task.ransack(@params[:q]).result.count).to eq(1)
     end
-
-
   end
-
 end
