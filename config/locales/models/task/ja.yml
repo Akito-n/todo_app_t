@@ -5,9 +5,14 @@ ja:
     attributes:
       task:
         status: 対応状況
+        priority: 優先度
   enums:
     task:
-      status: 
+      status:
         waiting: 未着手
         warking: 着手
         completed: 完了
+      priority:
+        low: 低
+        middle: 中
+        high: 高

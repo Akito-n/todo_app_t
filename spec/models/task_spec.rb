@@ -40,16 +40,12 @@ describe Task do
     let!(:task05) {create(:sort_term_task, :term05)}
 
     it 'is 1　result Search for title_cont by "３" ' do
-      @params = Hash.new
-      @params[:q] = Hash.new
-      @params[:q][:title_cont] = '３'
+      @params = { q:{ title_cont: '３' } }
       expect(Task.ransack(@params[:q]).result.count).to eq(1)
     end
 
     it 'is 1　result Search for status_eq by 2 ' do
-      @params = Hash.new
-      @params[:q] = Hash.new
-      @params[:q][:status_eq] = 2
+      @params = {q: {status_eq: 2 } }
       expect(Task.ransack(@params[:q]).result.count).to eq(1)
     end
 

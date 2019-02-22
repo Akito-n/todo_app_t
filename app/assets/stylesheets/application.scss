@@ -35,3 +35,27 @@
  .help-block{
    color: red;
  }
+ .label-position-down{
+   vertical-align: sub;
+ }
+
+ /*pagenation kaminari*/
+.first,.prev,.next,.page,.last{
+  padding: 0px;
+  margin: 0;
+  width: 34px;
+  height: 34px;
+  text-align: center;
+  line-height: 34px;
+  display:inline-block;
+  border-radius: 80%;
+  background-color: #00c4a7;
+  a{
+    color: #fff;
+  }
+
+}
+.page.current {
+  color: #fff;
+  background-color: #144840;
+}

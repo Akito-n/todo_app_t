@@ -10,16 +10,19 @@ FactoryBot.define do
     trait :create2011_01_01 do
       title {"タイトル1"}
       created_at {"2011-01-01 00:00:00"}
+      priority { 0 }
     end
 
     trait :create2012_01_01 do
       title {"タイトル2"}
       created_at {"2012-01-01 00:00:00"}
+      priority { 1 }
     end
 
     trait :created2013_01_01 do
       title {"タイトル3"}
       created_at {"2013-01-01 00:00:00"}
+      priority { 2 }
     end
   end
 
