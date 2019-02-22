@@ -2,10 +2,12 @@ FactoryBot.define do
   factory :task do
     title {"編集テストtitle"}
     description {"編集説明"}
+    user_id { 1 }
   end
 
   factory :order_task, class: Task do
     description {"説明"}
+    user_id { 1 }
 
     trait :create2011_01_01 do
       title {"タイトル1"}
@@ -29,6 +31,7 @@ FactoryBot.define do
   factory :sort_term_task, class: Task do
     description {'説明'}
     created_at {'2011-01-01 00:00:00'}
+    user_id { 1 }
 
     trait :term01 do
       title {'１月'}

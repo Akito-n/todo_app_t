@@ -6,6 +6,8 @@ RSpec.feature 'task_CRUD', type: :feature do
   let(:task2012) {create(:order_task, :create2012_01_01)}
   let(:task2011) {create(:order_task, :create2011_01_01)}
 
+  let!(:user) {create(:user)}
+
 
   scenario 'create new task' do
     visit root_path
@@ -16,7 +18,6 @@ RSpec.feature 'task_CRUD', type: :feature do
       click_button '登録'
       expect(page).to have_css '.alert'
     }.to change { Task.count }.by(1)
-
   end
 
   scenario 'edit task' do

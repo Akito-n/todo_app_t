@@ -1,11 +1,10 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
-
   def index
     @search = Task.ransack(params[:q])
     #@search.build_sort if @search.sorts.empty?
-    @tasks = @search.result.page(params[:page]).per(10)
+    @tasks = @search.result.includes(:user).page(params[:page]).per(10)
   end
 
   def new
@@ -14,6 +13,9 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    ### 一旦
+    @task.user_id = 1
+    ###
     if @task.save
       flash[:success] = t('.succsess')
       redirect_to action: 'index'
