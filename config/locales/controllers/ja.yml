@@ -3,3 +3,6 @@ ja:
     succsess: '登録したよー'
     edit: '編集したよー'
     delete: '削除したよー'
+  user:
+    success: 'ユーザーを新規登録しました'
+    

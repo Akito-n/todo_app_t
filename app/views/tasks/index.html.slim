@@ -2,7 +2,7 @@ div.content
   div.columns
     div.column
       h1=t('.title')
-      = link_to t('.new'), new_task_path, class: 'button is-primary'
+      =link_to t('.new'), new_task_path, class: 'button is-primary'
     div.column
   div.columns
   =render 'search_form', { search: @search }

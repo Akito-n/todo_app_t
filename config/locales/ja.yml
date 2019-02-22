@@ -27,3 +27,9 @@ ja:
       last: '最後'
       next: '次'
       previous: '前'
+  users:
+    new:
+      name: '氏名'
+      email: 'メールアドレス'
+      password: 'password'
+      password_confirmation: 'password(確認)'

@@ -4,6 +4,10 @@ class CustomFormBuilder < ActionView::Helpers::FormBuilder
     super + error(method)
   end
 
+  def password_field(method, options={})
+    super + error(method)
+  end
+
   private
 
   def error(method)

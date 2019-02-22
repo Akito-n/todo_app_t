@@ -9,7 +9,6 @@ nav.navbar aria-label=("main navigation") role="navigation"
     .navbar-end
       .navbar-item
         .buttons
-          a.button.is-primary href="#"
-            strong Sign up
+          =link_to 'Sign UP', signup_path, class:'button is-primary'
           a.button.is-light href="#"
             | Log in
