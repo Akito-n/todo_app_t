@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   def index
     @search = Task.ransack(params[:q])
     #@search.build_sort if @search.sorts.empty?
-    @tasks = @search.result
+    @tasks = @search.result.page(params[:page]).per(10)
   end
 
   def new
