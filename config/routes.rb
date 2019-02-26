@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
+  ActiveAdmin.routes(self)
   root to: 'tasks#index'
   get 'signup', to: 'users#new'
   resources :tasks
