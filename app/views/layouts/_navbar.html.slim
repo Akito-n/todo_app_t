@@ -10,7 +10,7 @@ nav.navbar aria-label=("main navigation") role="navigation"
       .navbar-item
         .buttons
           -if logged_in?
-            =link_to 'Log Out', logout_path, method: :delete, class: 'button is-danger'
+            =link_to 'Log Out', logout_path, method: :delete, class: 'button is-custom-logout'
           -else
             =link_to 'Sign UP', signup_path, class:'button is-primary'
             =link_to 'Log in', login_path, class:'button is-light'
