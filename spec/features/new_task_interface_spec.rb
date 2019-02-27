@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.feature 'task_CRUD', type: :feature do
-  let(:task) {create(:task)}
-  let(:task2013) {create(:order_task, :created2013_01_01)}
-  let(:task2012) {create(:order_task, :create2012_01_01)}
-  let(:task2011) {create(:order_task, :create2011_01_01)}
+  let(:task) {create(:task, user: user)}
+  let(:task2013) {create(:order_task, :created2013_01_01, user: user)}
+  let(:task2012) {create(:order_task, :create2012_01_01, user: user)}
+  let(:task2011) {create(:order_task, :create2011_01_01, user: user)}
 
   let!(:user) {create(:user)}
 
@@ -80,11 +80,11 @@ RSpec.feature 'task_CRUD', type: :feature do
   end
 
   context 'Sort task　by term' do
-      let!(:task01) {create(:sort_term_task, :term01)}
-      let!(:task02) {create(:sort_term_task, :term02)}
-      let!(:task03) {create(:sort_term_task, :term03)}
-      let!(:task04) {create(:sort_term_task, :term04)}
-      let!(:task05) {create(:sort_term_task, :term05)}
+      let!(:task01) {create(:sort_term_task, :term01, user: user)}
+      let!(:task02) {create(:sort_term_task, :term02, user: user)}
+      let!(:task03) {create(:sort_term_task, :term03, user: user)}
+      let!(:task04) {create(:sort_term_task, :term04, user: user)}
+      let!(:task05) {create(:sort_term_task, :term05, user: user)}
     before do
       visit root_path
     end
@@ -103,9 +103,9 @@ RSpec.feature 'task_CRUD', type: :feature do
   end
   context 'Sort task priority' do
 
-    let!(:task2013) {create(:order_task, :created2013_01_01)}
-    let!(:task2012) {create(:order_task, :create2012_01_01)}
-    let!(:task2011) {create(:order_task, :create2011_01_01)}
+    let!(:task2013) {create(:order_task, :created2013_01_01, user: user)}
+    let!(:task2012) {create(:order_task, :create2012_01_01, user: user)}
+    let!(:task2011) {create(:order_task, :create2011_01_01, user: user)}
 
 
     scenario 'Order priority DESC and ASC' do
@@ -119,11 +119,11 @@ RSpec.feature 'task_CRUD', type: :feature do
   end
 
   context 'Search task by Ransack' do
-      let!(:task01) {create(:sort_term_task, :term01)}
-      let!(:task02) {create(:sort_term_task, :term02)}
-      let!(:task03) {create(:sort_term_task, :term03)}
-      let!(:task04) {create(:sort_term_task, :term04)}
-      let!(:task05) {create(:sort_term_task, :term05)}
+      let!(:task01) {create(:sort_term_task, :term01, user: user)}
+      let!(:task02) {create(:sort_term_task, :term02, user: user)}
+      let!(:task03) {create(:sort_term_task, :term03, user: user)}
+      let!(:task04) {create(:sort_term_task, :term04, user: user)}
+      let!(:task05) {create(:sort_term_task, :term05, user: user)}
 
       before do
         visit root_path
