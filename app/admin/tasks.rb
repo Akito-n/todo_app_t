@@ -12,6 +12,8 @@ ActiveAdmin.register Task do
 #   permitted
 # end
 
+permit_params :user_id, :title, :description, :term, status: [], priority: []
+
 
 controller do
   def scoped_collection

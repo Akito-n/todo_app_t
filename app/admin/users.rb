@@ -12,6 +12,10 @@ ActiveAdmin.register User do
 #   permitted
 # end
 
+permit_params :name, :email, :password
+
+
+
 actions :all, except: [:new]
 index do
   column 'ID', :id
