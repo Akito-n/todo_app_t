@@ -6,11 +6,11 @@
           .field
             =f.label :name, t('.name'), class: 'label'
             .control
-              =f.text_field :name, placeholder: 'your_name', value: @user.name, class:'input'
+              =f.text_field :name, placeholder: t('.name'), value: @user.name, class:'input'
           .field
             =f.label :email, t('.email'), class: 'label'
             .control
-              =f.text_field :email, placeholder: 'your email address', value: @user.email, class: 'input'
+              =f.text_field :email, placeholder: t('.email'), value: @user.email, class: 'input'
           .field
             =f.label :password, t('.password'), class: 'label'
             .control

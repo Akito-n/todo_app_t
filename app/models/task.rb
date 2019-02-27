@@ -5,10 +5,8 @@ class Task < ApplicationRecord
   validates :description, length: { maximum: 200 }
 
 
-  enum status: { waiting: 0, warking: 1, completed: 2}
+  enum status: { waiting: 0, warking: 1, completed: 2 }
 
   enum priority: { low: 0, middle: 1, high: 2 }
-
-
 
 end
