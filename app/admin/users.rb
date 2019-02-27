@@ -26,19 +26,29 @@ form do |f|
 end
 
 
-actions :all,
+actions :all
 index do
-  column 'ID', :id
-  column "名前", :name
-  column "メールアドレス", :email
-  column "登録日", :created_at
-  #column 'tasks', self.tasks.count
-  #column 'password(暗号化済み)', :password_digest
-  column '役割', :role
-  column 'タスク数', :tasks do | user|
-    user.tasks.count
+    column 'ID', :id
+    column I18n.t('activerecord.attributes.user.name'), :name
+    column I18n.t('activerecord.attributes.user.email'), :email
+    column I18n.t('activerecord.attributes.user.created_at'), :created_at
+    role_column I18n.t('activerecord.attributes.user.role'), :role
+    column 'タスク数', :tasks do | user|
+      user.tasks.count
+    end
+    actions
+
+end
+
+module ActiveAdmin
+  module Views
+    class TableFor
+
+      def role_column(title, attribute)
+        column(attribute){ |model| User.roles_i18n[model[attribute]] }
+      end
+    end
   end
-  actions
 end
 
 end
