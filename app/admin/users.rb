@@ -12,18 +12,27 @@ ActiveAdmin.register User do
 #   permitted
 # end
 
-permit_params :name, :email, :password
+permit_params :name, :email, :password, :password_digest
 
 
+form do |f|
+  f.inputs "User" do
+  f.input :name
+  f.input :email
+  f.input :password
+  end
+  f.actions
+end
 
-actions :all, except: [:new]
+
+actions :all
 index do
   column 'ID', :id
   column "名前", :name
   column "メールアドレス", :email
   column "登録日", :created_at
-  column 'password(暗号化済み)', :password_digest
   #column 'tasks', self.tasks.count
+  column 'password(暗号化済み)', :password_digest
   column 'タスク数', :tasks do | user|
     user.tasks.count
   end
