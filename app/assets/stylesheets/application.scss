@@ -30,6 +30,14 @@
     border-radius: 6px;
     width: 100%;
  }
+ .is-custom-logout {
+   background-color: #fb7540;
+   color: #fff;
+ }
+
+ .is-custom-logout:hover{
+   color: #fff;
+ }
 
  /*error messages css*/
  .help-block{
@@ -58,4 +66,9 @@
 .page.current {
   color: #fff;
   background-color: #144840;
+}
+
+/* user */
+.submit-button {
+  text-align: center;
 }
