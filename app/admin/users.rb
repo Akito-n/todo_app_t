@@ -12,7 +12,7 @@ ActiveAdmin.register User do
 #   permitted
 # end
 
-permit_params :name, :email, :password, :password_digest
+permit_params :name, :email, :password, :password_digest, :role
 
 
 form do |f|
@@ -20,19 +20,21 @@ form do |f|
   f.input :name
   f.input :email
   f.input :password
+  f.input :role
   end
   f.actions
 end
 
 
-actions :all
+actions :all,
 index do
   column 'ID', :id
   column "名前", :name
   column "メールアドレス", :email
   column "登録日", :created_at
   #column 'tasks', self.tasks.count
-  column 'password(暗号化済み)', :password_digest
+  #column 'password(暗号化済み)', :password_digest
+  column '役割', :role
   column 'タスク数', :tasks do | user|
     user.tasks.count
   end
