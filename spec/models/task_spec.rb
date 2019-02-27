@@ -35,11 +35,11 @@ describe Task do
 
   describe 'Search' do
     let!(:user) {create(:user)}
-    let!(:task01) {create(:sort_term_task, :term01)}
-    let!(:task02) {create(:sort_term_task, :term02)}
-    let!(:task03) {create(:sort_term_task, :term03)}
-    let!(:task04) {create(:sort_term_task, :term04)}
-    let!(:task05) {create(:sort_term_task, :term05)}
+    let!(:task01) {create(:sort_term_task, :term01, user: user)}
+    let!(:task02) {create(:sort_term_task, :term02, user: user)}
+    let!(:task03) {create(:sort_term_task, :term03, user: user)}
+    let!(:task04) {create(:sort_term_task, :term04, user: user)}
+    let!(:task05) {create(:sort_term_task, :term05, user: user)}
 
     it 'is 1　result Search for title_cont by "３" ' do
       @params = { q:{ title_cont: '３' } }
