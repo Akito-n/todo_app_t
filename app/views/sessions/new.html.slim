@@ -2,7 +2,7 @@
   .columns
     .column.is-three-fifths.is-offset-one-fifth
       .field
-        =form_with scope: :session, url: login_path do |f|
+        =form_with scope: :session, url: login_path, data: {remote: false } do |f|
           .field
             =f.label :email, t('.email'), class: 'label'
             .control

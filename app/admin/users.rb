@@ -40,6 +40,21 @@ index do
 
 end
 
+controller do
+  def destroy
+    super do |success, failure|
+      success.html{
+        flash[:notice] = '削除しました'
+        redirect_to admin_users_path
+      }
+      failure.html{
+        flash[:danger] = '削除に失敗しました。管理者は最低一人必要です。また、ログイン中の管理者は削除できません。'
+        redirect_to admin_users_path
+       }
+    end
+  end
+end
+
 module ActiveAdmin
   module Views
     class TableFor

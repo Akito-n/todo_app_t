@@ -11,20 +11,24 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  before_destroy :count_admin_user_for_destroy
+  before_destroy :current_user?, :count_admin_user_for_destroy
   before_update :count_admin_user_for_edit
 
   def count_admin_user_for_destroy
     if User.all.admin.count == 1 && self.admin?
-      errors.add :base, '管理者アカウントを持つユーザーは少なくとも一人必要です。'
+      errors.add :base, ''
       throw :abort
     end
   end
   def count_admin_user_for_edit
     if User.all.admin.count == 1 && self.role_changed?(from: 'admin', to: 'member')
-      errors.add :base, '管理者アカウントを持つユーザーは少なくとも一人必要です。'
+      errors.add :base, ''
       throw :abort
     end
+  end
+
+  def current_user?
+
   end
 
 end
