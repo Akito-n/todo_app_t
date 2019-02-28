@@ -11,7 +11,6 @@ ActiveAdmin.register User do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-
 permit_params :name, :email, :password, :password_digest, :role
 
 
@@ -36,8 +35,7 @@ index do
     column 'タスク数', :tasks do | user|
       user.tasks.count
     end
-    actions
-
+      actions
 end
 
 controller do
@@ -53,12 +51,24 @@ controller do
        }
     end
   end
+
+  def update
+    super do |success, failure|
+      success.html{
+        flash[:notice] = '更新しました'
+        redirect_to admin_users_path
+      }
+      failure.html{
+        flash[:danger] = '更新に失敗しました。管理者は最低一人必要です。'
+        render edit_admin_user_path
+       }
+    end
+  end
 end
 
 module ActiveAdmin
   module Views
     class TableFor
-
       def role_column(title, attribute)
         column(attribute){ |model| User.roles_i18n[model[attribute]] }
       end
