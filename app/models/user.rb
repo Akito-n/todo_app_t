@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   has_many :tasks, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 50 }
@@ -11,8 +12,11 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  before_destroy :current_user?, :count_admin_user_for_destroy
+  before_destroy :count_admin_user_for_destroy
   before_update :count_admin_user_for_edit
+
+
+
 
   def count_admin_user_for_destroy
     if User.all.admin.count == 1 && self.admin?
@@ -26,9 +30,4 @@ class User < ApplicationRecord
       throw :abort
     end
   end
-
-  def current_user?
-
-  end
-
 end
