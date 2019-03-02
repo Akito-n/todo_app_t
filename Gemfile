@@ -42,6 +42,8 @@ gem 'enum_help'
 gem 'kaminari'
 #gem 'faker'
 gem 'activeadmin'
+gem 'jquery-ui-rails'
+gem 'gon'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
