@@ -12,10 +12,9 @@ module TodoApp
     config.load_defaults 5.2
     config.generators.templete_engine = :slim
 
-
     config.time_zone = 'Tokyo'
 
-    #config.active_record.default_timezone = :local
+    # config.active_record.default_timezone = :local
 
     config.i18n.default_locale = :ja
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
@@ -32,7 +31,7 @@ module TodoApp
                        routing_specs: false,
                        controller_specs: true,
                        request_specs: false
-      g.fixture_replacement :factory_bot, dir: "spec/factories"
+      g.fixture_replacement :factory_bot, dir: 'spec/factories'
     end
   end
 end

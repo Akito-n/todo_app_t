@@ -1,10 +1,9 @@
 class CustomFormBuilder < ActionView::Helpers::FormBuilder
-
-  def text_field(method, options ={})
+  def text_field(method, options = {})
     super + error(method)
   end
 
-  def password_field(method, options={})
+  def password_field(method, options = {})
     super + error(method)
   end
 
@@ -15,18 +14,16 @@ class CustomFormBuilder < ActionView::Helpers::FormBuilder
   end
 
   def error_message(method)
-    (@object.errors[method].size > 0) ?  + "#{method}" + @object.errors[method].first : ""
+    !@object.errors[method].empty? ? + method.to_s + @object.errors[method].first : ''
   end
 
   def error_html(msg)
-    return "" unless msg.present?
+    return '' unless msg.present?
 
-    @template.content_tag(:div, class: "has-error") do
-      @template.concat (@template.content_tag(:span, class: "help-block") do
+    @template.content_tag(:div, class: 'has-error') do
+      @template.concat (@template.content_tag(:span, class: 'help-block') do
         msg
       end)
     end
   end
-
-
 end

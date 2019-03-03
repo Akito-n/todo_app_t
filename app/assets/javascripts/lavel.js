@@ -1,12 +1,12 @@
 $(document).on('turbolinks:load', function() {
   $("#task_lavels").tagit({
-    fieldName:"lavels[]",
+    fieldName: "lavels[]",
     availableTags: gon.availavle_tags
   });
   if (gon.lavels) {
     lavels = gon.lavels
-    for (i in lavels){
-       $('#task_lavels').tagit('createTag', lavels[i])
-     }
+    for (i in lavels) {
+      $('#task_lavels').tagit('createTag', lavels[i])
+    }
   }
 })

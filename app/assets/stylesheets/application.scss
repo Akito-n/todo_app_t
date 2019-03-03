@@ -14,61 +14,65 @@
  *= require tagit.ui-zendesk
  *= require_self
  */
- @import 'bulma';
+@import 'bulma';
+$main-color: (darkcyan);
 
- $main-color :(darkcyan);
-
-.navbar{
+.navbar {
   background-color: $main-color;
   margin-bottom: 30px;
 }
- .custom-date_field{
-   background-color: white;
-    border-color: #dbdbdb;
-    color: #363636;
-    /* box-shadow: inset 0 1px 1px rgba(10, 10, 10, 0.1); */
-    max-width: 30%;
-    border-radius: 6px;
-    width: 100%;
- }
- .is-custom-logout {
-   background-color: #fb7540;
-   color: #fff;
- }
 
- .is-custom-logout:hover{
-   color: #fff;
- }
+.custom-date_field {
+  background-color: white;
+  border-color: #dbdbdb;
+  color: #363636;
+  /* box-shadow: inset 0 1px 1px rgba(10, 10, 10, 0.1); */
+  max-width: 30%;
+  border-radius: 6px;
+  width: 100%;
+}
 
- /*error messages css*/
- .help-block{
-   color: red;
- }
- .label-position-down{
-   vertical-align: sub;
- }
+.is-custom-logout {
+  background-color: #fb7540;
+  color: #fff;
+}
 
- /*pagenation kaminari*/
-.first,.prev,.next,.page,.last{
-  padding: 0px;
+.is-custom-logout:hover {
+  color: #fff;
+}
+/*error messages css*/
+.help-block {
+  color: red;
+}
+
+.label-position-down {
+  vertical-align: sub;
+}
+/*pagenation kaminari*/
+.first,
+.last,
+.next,
+.page,
+.prev {
+  padding: 0;
   margin: 0;
   width: 34px;
   height: 34px;
   text-align: center;
   line-height: 34px;
-  display:inline-block;
+  display: inline-block;
   border-radius: 80%;
   background-color: #00c4a7;
-  a{
+
+  a {
     color: #fff;
   }
-
 }
+
 .page.current {
   color: #fff;
   background-color: #144840;
 }
-
 /* user */
 .submit-button {
   text-align: center;
