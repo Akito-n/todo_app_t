@@ -77,3 +77,11 @@ $main-color: (darkcyan);
 .submit-button {
   text-align: center;
 }
+/* tag-it override */
+ul.tagit li.tagit-choice {
+  background-color: #00d5b1;
+}
+
+ul.tagit li.tagit-choice .tagit-label:not(a) {
+  color: white;
+}
