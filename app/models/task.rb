@@ -10,6 +10,7 @@ class Task < ApplicationRecord
   enum priority: { low: 0, middle: 1, high: 2 }
 
   def save_lavels(lavels)
+    lavels = [] if lavels.nil?
     current_lavels = self.lavels.pluck(:body) unless self.lavels.nil?
     old_lavels = current_lavels - lavels
     new_lavels = lavels - current_lavels

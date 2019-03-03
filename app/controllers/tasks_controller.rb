@@ -16,6 +16,7 @@ class TasksController < ApplicationController
 
     @task = @current_user.tasks.build(task_params)
     set_lavel_list
+    #byebug
     if @task.save && @task.save_lavels(@lavels)
       flash[:success] = t('.succsess')
       redirect_to action: 'index'
