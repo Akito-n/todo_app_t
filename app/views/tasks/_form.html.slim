@@ -1,6 +1,9 @@
 .field
   =form_with model:task, :builder => CustomFormBuilder, local: true do |f|
     .field
+      .control
+        ul#task_lavels
+    .field
       =f.label :title, t('.title'), class: 'label'
       .control
         =f.text_field :title, placeholder: "ToDo Title", value: task.title, class: 'input'
