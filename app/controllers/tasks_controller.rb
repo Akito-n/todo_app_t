@@ -38,9 +38,14 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @task.destroy
-    flash[:success] = t('.delete')
-    redirect_to action: 'index'
+
+    if @task.destroy
+      flash[:success] = t('.delete')
+      redirect_to action: 'index'
+    else
+      flash.now[:danger] = t('.delete-faild')
+      render 'index'
+    end
   end
 
   private
