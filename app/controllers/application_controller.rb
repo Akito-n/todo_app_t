@@ -5,9 +5,11 @@ class ApplicationController < ActionController::Base
     render file: "#{Rails.root}/public/404.html", layout: false, status: 404
   end
 
-  def authenticate_admin_user!
-    raise SecurityError unless current_user.try(:admin?)
-  end
+
+def authenticate_admin_user!
+  raise SecurityError unless current_user&.admin?
+end
+
 
   private
 

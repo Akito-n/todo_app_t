@@ -40,9 +40,14 @@ class TasksController < ApplicationController
   def show; end
 
   def destroy
-    @task.destroy
-    flash[:success] = t('.delete')
-    redirect_to action: 'index'
+
+    if @task.destroy
+      flash[:success] = t('.delete')
+      redirect_to action: 'index'
+    else
+      flash.now[:danger] = t('.delete-faild')
+      render 'index'
+    end
   end
 
   private
@@ -52,7 +57,7 @@ class TasksController < ApplicationController
   end
 
   def set_task
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
   end
 
   def set_lavel_list
