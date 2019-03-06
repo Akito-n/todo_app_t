@@ -8,7 +8,7 @@ rescue_from SecurityError do |exception|
 end
 
 def authenticate_admin_user!
-  raise SecurityError unless current_user.try(:admin?)
+  raise SecurityError unless current_user&.admin?
 end
 
 
