@@ -6,6 +6,11 @@ ja:
       task:
         status: 対応状況
         priority: 優先度
+      user:
+        name: 名前
+        email: メールアドレス
+        created_at: 登録日
+        role: 役割
   enums:
     task:
       status:
@@ -16,3 +21,7 @@ ja:
         low: 低
         middle: 中
         high: 高
+    user:
+      role:
+        member: 一般
+        admin: 管理者
