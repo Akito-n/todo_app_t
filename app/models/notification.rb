@@ -11,20 +11,34 @@ class Notification < ApplicationRecord
 
   private
 
-  def self.set_notification
-    # termがnilではないものを呼び出す
-    tasks = Task.where.not(term: nil)
-    tasks.each do |task|
-      #新規作成されたタスクならクリエイト、前からあるタスクならfindする
-      notification = Notification.find_or_create_by(task_id: task.id, user_id: task.user_id)
-      # 期限が先なら、状態をgreenにしたい
-      if Time.current < task.term
-        notification.update(term: 0)
-      # もし期限がメソッド実行時にカウントして３日以内にせまっていた場合orこのメソッドの初回実行時に３日以内で設定していた場合
-      elsif Time.current <= task.term && task.term < Time.current.since(3.days)
+  def self.notification_management
+    notifications = Notification.all
+    notifications.each do |notification|
+      #期限が3日以内の場合
+      if Time.current <= notification.task.term && notification.task.term < Time.current.since(3.days)
         notification.update(term: 1)
-      # 期限が過ぎていた場合or最初から期限を過去にしていた場合
+      #期限が過ぎている場合
+      elsif notification.task.term < Time.current
+        notification.update(term: 2)
+      #それ以外の場合（黄色or赤だったが、期限が延びた場合はお知らせから消す）
+      else
+        notification.delete
+      end
+    end
+  end
+
+  def self.set_notification
+    self.notification_management
+    # termがnilではないもの、且つ’完了’ではないタスクを呼び出す
+    tasks = Task.where.not(term: nil, status: 2)
+    tasks.each do |task|
+      # タスクの期限が3日以内だった場合
+      if Time.current <= task.term && task.term < Time.current.since(3.days)
+        notification = Notification.find_or_create_by(task_id: task.id, user_id: task.user_id)
+        notification.update(term: 1)
+      # 期限が過ぎていた場合
       elsif task.term < Time.current
+        notification = Notification.find_or_create_by(task_id: task.id, user_id: task.user_id)
         notification.update(term: 2)
       end
     end
