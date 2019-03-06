@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
   before_action :set_autocomplete_tag, only: %i[new edit]
+  before_action :set_lavel_list, only: %i[create, update]
   before_action :require_user_logged_in
 
   def index
@@ -14,7 +15,6 @@ class TasksController < ApplicationController
 
   def create
     @task = @current_user.tasks.build(task_params)
-    set_lavel_list
     if @task.save && @task.save_lavels(@lavels)
       flash[:success] = t('.succsess')
       redirect_to action: 'index'
@@ -28,7 +28,6 @@ class TasksController < ApplicationController
   end
 
   def update
-    set_lavel_list
     if @task.update(task_params) && @task.save_lavels(@lavels)
       flash[:succsess] = t('.edit')
       redirect_to action: 'index'
