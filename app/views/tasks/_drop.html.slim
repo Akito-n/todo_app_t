@@ -1,0 +1,11 @@
+.dropdown
+  .dropdown-trigger
+    button.button aria-controls="dropdown-menu" aria-haspopup="true"
+      -if @notifications.count >= 1
+        span 期限が迫っているタスクがあります
+      -else
+        span 期限が迫っているタスクはありません
+  #dropdown-menu.dropdown-menu role="menu"
+    .dropdown-content
+      - @notifications.each do |notification|
+        .dropdown-item class=("#{notification.term}") =notification.task.title

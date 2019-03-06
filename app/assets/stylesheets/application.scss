@@ -85,3 +85,27 @@ ul.tagit li.tagit-choice {
 ul.tagit li.tagit-choice .tagit-label:not(a) {
   color: white;
 }
+
+/*bluma dropdown*/
+
+.dropdown {
+  width: 350px;
+}
+.red {
+  background-color: #ef2525c2;
+  border-radius: 8px;
+  border: 1px solid #b37171;
+  color: white;
+  margin-bottom: 1px;
+  font-weight: bold;
+
+}
+.yellow {
+  background-color: #efba25e6;
+  border-radius: 8px;
+  border: 1px solid #b37171;
+  color: white;
+  margin-bottom: 1px;
+  font-weight: bold;
+
+}
