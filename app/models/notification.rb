@@ -14,6 +14,11 @@ class Notification < ApplicationRecord
   def self.notification_management
     notifications = Notification.all
     notifications.each do |notification|
+      #Notificationにあるタスクのうち、完了になったものは消す
+      if notification.task.completed?
+        notification.delete
+        return
+      end 
       #期限が3日以内の場合
       if Time.current <= notification.task.term && notification.task.term < Time.current.since(3.days)
         notification.update(term: 1)

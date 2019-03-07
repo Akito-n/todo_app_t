@@ -1,6 +1,6 @@
 class Task < ApplicationRecord
   belongs_to :user
-  has_one :notification
+  has_one :notification, dependent: :destroy
   has_many :task_lavels, dependent: :destroy
   has_many :lavels, through: :task_lavels
 
