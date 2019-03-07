@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_05_083435) do
+ActiveRecord::Schema.define(version: 2019_03_07_025801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2019_03_05_083435) do
     t.bigint "user_id"
     t.bigint "task_id"
     t.integer "term"
-    t.integer "read"
+    t.integer "read", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["task_id"], name: "index_notifications_on_task_id"

@@ -8,4 +8,4 @@
   #dropdown-menu.dropdown-menu role="menu"
     .dropdown-content
       - @notifications.each do |notification|
-        .dropdown-item class=("#{notification.term}") =notification.task.title
+        .dropdown-item class=("#{notification.term} #{notification.read}") =link_to notification.task.title, read_path(notification), method: :put
