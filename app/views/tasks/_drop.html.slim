@@ -3,13 +3,13 @@
     button.button.alert-button aria-controls="dropdown-menu" aria-haspopup="true"
       -if @notifications.count >= 1
         span =fa_icon("bell 2x", text: "#{ @notifications.where.not(read: 1).count }", class: 'alert-active')
+          #dropdown-menu.dropdown-menu role="menu"
+            .dropdown-content
+              - @notifications.each do |notification|
+                - case notification.read
+                  - when 'yet'
+                    .dropdown-item class=("#{notification.term} #{notification.read}") =link_to notification.task.title, read_path(notification), method: :put
+                  - when 'done'
+                    .dropdown-item class=("#{notification.term} #{notification.read}") =link_to fa_icon("check", text: notification.task.title), read_path(notification), method: :put
       -else
         span =fa_icon("bell-slash 2x", class: 'alert-non-active')
-  #dropdown-menu.dropdown-menu role="menu"
-    .dropdown-content
-      - @notifications.each do |notification|
-        - case notification.read
-          - when 'yet'
-            .dropdown-item class=("#{notification.term} #{notification.read}") =link_to notification.task.title, read_path(notification), method: :put
-          - when 'done'
-            .dropdown-item class=("#{notification.term} #{notification.read}") =link_to fa_icon("check", text: notification.task.title), read_path(notification), method: :put

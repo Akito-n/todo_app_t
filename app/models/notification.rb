@@ -18,11 +18,11 @@ class Notification < ApplicationRecord
       if notification.task.completed?
         notification.delete
         return
-      end 
-      #期限が3日以内の場合
+      end
+      #期限が3日以内の場合:黄色
       if Time.current <= notification.task.term && notification.task.term < Time.current.since(3.days)
         notification.update(term: 1)
-      #期限が過ぎている場合
+      #期限が過ぎている場合:赤
       elsif notification.task.term < Time.current
         notification.update(term: 2)
       #それ以外の場合（黄色or赤だったが、期限が延びた場合はお知らせから消す）
