@@ -1,12 +1,4 @@
-div.content
-  div.columns
-    div.column
-      h1=t('.title')
-      =link_to t('.new'), new_task_path, class: 'button is-primary'
-    div.column
-      =render 'drop', { notifications: @notifications }
-  div.columns
-  =render 'search_form', { search: @search }
+.content
   .columns
     .column.is-3.is-offset-9=paginate @tasks
   .columns
@@ -16,10 +8,10 @@ div.content
           tr
             th =t('tasks.show.title')
             th =t('tasks.show.description')
-            th =sort_link(@search, :term, t('.term'))
-            th =sort_link(@search, :created_at, t('.created_at'),default_order: :asc)
+            th =t('tasks.index.term')
+            th =t('tasks.index.created_at')
             th =t('activerecord.attributes.task.status')
-            th =sort_link(@search, :priority, t('activerecord.attributes.task.priority'))
+            th =t('activerecord.attributes.task.priority')
             th
             th
         tbody

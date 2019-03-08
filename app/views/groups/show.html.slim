@@ -1,2 +1,6 @@
-h1 Groups#show
-p Find me in app/views/groups/show.html.slim
+.content
+  .columns
+    .column
+      - @users.each do |user|
+        =link_to user.name, group_user_path(user_id: user.id, group_id: @group.id )
+        
