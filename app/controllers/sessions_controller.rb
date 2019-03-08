@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
     email = params[:session][:email]
@@ -18,9 +17,6 @@ class SessionsController < ApplicationController
     logout
     redirect_to action: 'new'
   end
-
-
-
 
   private
 

@@ -18,6 +18,7 @@ ja:
       description: '説明'
       back: '一覧に戻る'
     form:
+      lavel: タグ追加
       title: 'タイトル'
       description: '説明'
       limit: '期限'

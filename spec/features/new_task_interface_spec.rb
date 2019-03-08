@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 RSpec.feature 'task_CRUD', type: :feature do
-  let(:task) {create(:task, user: user)}
-  let(:task2013) {create(:order_task, :created2013_01_01, user: user)}
-  let(:task2012) {create(:order_task, :create2012_01_01, user: user)}
-  let(:task2011) {create(:order_task, :create2011_01_01, user: user)}
+  let(:task) { create(:task, user: user) }
+  let(:task2013) { create(:order_task, :created2013_01_01, user: user) }
+  let(:task2012) { create(:order_task, :create2012_01_01, user: user) }
+  let(:task2011) { create(:order_task, :create2011_01_01, user: user) }
 
-  let!(:user) {create(:user)}
+  let!(:user) { create(:user) }
 
   before do
     visit login_path
@@ -17,13 +17,13 @@ RSpec.feature 'task_CRUD', type: :feature do
 
   scenario 'create new task' do
     visit root_path
-    expect {
+    expect do
       click_link '新規作成'
       fill_in 'task_title', with: 'new title'
       fill_in 'task_description', with: 'new description'
       click_button '登録'
       expect(page).to have_css '.alert'
-    }.to change { Task.count }.by(1)
+    end.to change { Task.count }.by(1)
   end
 
   scenario 'edit task' do
@@ -38,12 +38,11 @@ RSpec.feature 'task_CRUD', type: :feature do
   scenario 'delete task' do
     task
     visit root_path
-    expect {
+    expect do
       click_link '削除'
       expect(page).to have_css '.alert'
-    }.to change { Task.count }.by(-1)
+    end.to change { Task.count }.by(-1)
   end
-
 
   scenario 'order by created_at DESC' do
     task2013
@@ -71,7 +70,7 @@ RSpec.feature 'task_CRUD', type: :feature do
     end
 
     scenario 'description over max length' do
-      description = 'a' *  201
+      description = 'a' * 201
       fill_in 'task_title', with: 'title'
       fill_in 'task_description', with: description
       click_button '登録'
@@ -80,11 +79,11 @@ RSpec.feature 'task_CRUD', type: :feature do
   end
 
   context 'Sort task　by term' do
-      let!(:task01) {create(:sort_term_task, :term01, user: user)}
-      let!(:task02) {create(:sort_term_task, :term02, user: user)}
-      let!(:task03) {create(:sort_term_task, :term03, user: user)}
-      let!(:task04) {create(:sort_term_task, :term04, user: user)}
-      let!(:task05) {create(:sort_term_task, :term05, user: user)}
+    let!(:task01) { create(:sort_term_task, :term01, user: user) }
+    let!(:task02) { create(:sort_term_task, :term02, user: user) }
+    let!(:task03) { create(:sort_term_task, :term03, user: user) }
+    let!(:task04) { create(:sort_term_task, :term04, user: user) }
+    let!(:task05) { create(:sort_term_task, :term05, user: user) }
     before do
       visit root_path
     end
@@ -99,14 +98,11 @@ RSpec.feature 'task_CRUD', type: :feature do
       click_link '期日'
       expect(page.html).to match(/.*#{task05.title}.*#{task04.title}.*#{task03.title}.*#{task02.title}.*#{task01.title}/)
     end
-
   end
   context 'Sort task priority' do
-
-    let!(:task2013) {create(:order_task, :created2013_01_01, user: user)}
-    let!(:task2012) {create(:order_task, :create2012_01_01, user: user)}
-    let!(:task2011) {create(:order_task, :create2011_01_01, user: user)}
-
+    let!(:task2013) { create(:order_task, :created2013_01_01, user: user) }
+    let!(:task2012) { create(:order_task, :create2012_01_01, user: user) }
+    let!(:task2011) { create(:order_task, :create2011_01_01, user: user) }
 
     scenario 'Order priority DESC and ASC' do
       visit root_path
@@ -115,30 +111,29 @@ RSpec.feature 'task_CRUD', type: :feature do
       click_link '優先度'
       expect(page.html).to match(/.*#{task2013.title}.*#{task2012.title}.*#{task2011.title}/)
     end
-
   end
 
   context 'Search task by Ransack' do
-      let!(:task01) {create(:sort_term_task, :term01, user: user)}
-      let!(:task02) {create(:sort_term_task, :term02, user: user)}
-      let!(:task03) {create(:sort_term_task, :term03, user: user)}
-      let!(:task04) {create(:sort_term_task, :term04, user: user)}
-      let!(:task05) {create(:sort_term_task, :term05, user: user)}
+    let!(:task01) { create(:sort_term_task, :term01, user: user) }
+    let!(:task02) { create(:sort_term_task, :term02, user: user) }
+    let!(:task03) { create(:sort_term_task, :term03, user: user) }
+    let!(:task04) { create(:sort_term_task, :term04, user: user) }
+    let!(:task05) { create(:sort_term_task, :term05, user: user) }
 
-      before do
-        visit root_path
-      end
-
-      scenario 'search title' do
-        fill_in 'q_title_cont', with: '３'
-        click_on '検索'
-        expect(page.html).to match(/.*#{task03.title}.*/)
-      end
-
-       scenario 'search status'do
-         select '完了', from: 'q_status_eq'
-         click_on '検索'
-         expect(page.html).to match(/.*#{task02.title}.*/)
-       end
+    before do
+      visit root_path
     end
+
+    scenario 'search title' do
+      fill_in 'q_title_or_lavels_body_cont', with: '３'
+      click_on '検索'
+      expect(page.html).to match(/.*#{task03.title}.*/)
+    end
+
+    scenario 'search status' do
+      select '完了', from: 'q_status_eq'
+      click_on '検索'
+      expect(page.html).to match(/.*#{task02.title}.*/)
+    end
+  end
 end
