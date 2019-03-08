@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :tasks, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_many :group_users, dependent: :destroy
+  has_many :groups, through: :group_users
 
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence: true, length: { maximum: 255 },

@@ -1,0 +1,14 @@
+.field
+  =form_with model:@group, local: true do |f|
+    .field
+      .control
+        =f.label :name, t('.name'), class: 'label'
+        .control
+          =f.text_field :name, placeholder: t('.name'),class: 'input'
+    .field
+      p.control
+        =fields_for @emails, wrapper_tag: :div do |c|
+          =c.label :email, t('.email'), class: 'label'
+          =c.text_field :email, class: 'input'
+          =c.remove_nested_fields_link 'Delete',class: 'button is-danger', role: 'button'
+        =f.add_nested_fields_link @emails, 'Add new', class: 'button is-primary', role: 'button'

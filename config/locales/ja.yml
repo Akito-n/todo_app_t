@@ -9,8 +9,6 @@ ja:
         formats:
           default: '%Y/%m/%d'
       new: '新規作成'
-      edit: '編集'
-      delete: '削除'
       term: '期日'
       created_at: '作成日'
     show:
@@ -22,6 +20,16 @@ ja:
       title: 'タイトル'
       description: '説明'
       limit: '期限'
+  groups:
+    index:
+      title: グループ一覧
+      new: グループの作成
+      name: あたたの参加しているグループ名
+      member: 参加人数
+      delete: グループの削除
+    new:
+      name: グループ名
+      email: グループに参加させたいユーザーがいる場合はメールアドレスを記入してください。
   views:
     pagination:
       first: '最初'
