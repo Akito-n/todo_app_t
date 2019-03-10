@@ -43,3 +43,7 @@ ja:
       delete: 削除
     new:
       name: グループ名
+    show:
+      edit: 編集
+      delete: 削除
+      term: 期日

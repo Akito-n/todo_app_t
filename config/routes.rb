@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
-  root to: 'tasks#index'
+  root to: 'groups#index'
   get 'signup', to: 'users#new'
-  resources :tasks
+  #resources :tasks
   resources :users, only: [:new, :create]
-  resources :groups
+  resources :groups, shallow: true do
+    resources :tasks
+  end
   get 'users', to: 'users#new'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'

@@ -11,14 +11,17 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = @current_user.tasks.build
+    @group = @current_user.groups.find(params[:group_id])
+    @task = @group.tasks.build
   end
 
   def create
-    @task = @current_user.tasks.build(task_params)
+    @group = @current_user.groups.find(params[:group_id])
+    @task = @group.tasks.build(task_params)
+    @task.user_id = @current_user.id
     if @task.save && @task.save_lavels(@lavels)
       flash[:success] = t('.succsess')
-      redirect_to action: 'index'
+      redirect_to group_path(@group)
     else
       render 'new'
     end
@@ -29,9 +32,10 @@ class TasksController < ApplicationController
   end
 
   def update
+    @group = Group.find(@task.group_id)
     if @task.update(task_params) && @task.save_lavels(@lavels)
       flash[:succsess] = t('.edit')
-      redirect_to action: 'index'
+      redirect_to group_path(@group)
     else
       render 'edit'
     end
@@ -40,24 +44,24 @@ class TasksController < ApplicationController
   def show; end
 
   def destroy
-
-    if @task.destroy
+    @group = Group.find(@task.group_id)
+    unless @task.destroy
       flash[:success] = t('.delete')
-      redirect_to action: 'index'
+      redirect_to group_path(@group)
     else
-      flash.now[:danger] = t('.delete-faild')
-      render 'index'
+      flash[:danger] = t('.delete-faild')
+      redirect_back(fallback_location: root_path)
     end
   end
 
   private
 
   def task_params
-    params.require(:task).permit(:title, :description, :term, :status, :priority)
+    params.require(:task).permit(:title, :description, :term, :status, :priority, )
   end
 
   def set_task
-    @task = current_user.tasks.find(params[:id])
+    @task = Task.find(params[:id])
   end
 
   def set_lavel_list
