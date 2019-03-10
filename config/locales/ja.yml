@@ -34,3 +34,12 @@ ja:
       email: 'メールアドレス'
       password: 'password'
       password_confirmation: 'password(確認)'
+  groups:
+    index:
+      title: グループ一覧
+      new: グループの新規作成
+      name: グループ名
+      member: メンバー数
+      delete: 削除
+    new:
+      name: グループ名

@@ -1,2 +1,10 @@
-h1 Groups#new
-p Find me in app/views/groups/new.html.slim
+.field
+  =form_with model:@group, url: groups_path, local: true do |f|
+    .field
+      .control
+        =f.label :name, t('.name'), class: 'label'
+        .control
+          =f.text_field :name, placeholder: t('.name'),class: 'input'
+    .field
+      .control
+        =f.submit class: 'button is-primary'
