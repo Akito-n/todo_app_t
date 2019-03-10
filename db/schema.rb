@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_05_083435) do
+ActiveRecord::Schema.define(version: 2019_03_09_203657) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 2019_03_05_083435) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
 
+  create_table "groups", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_groups_on_user_id"
+  end
+
   create_table "lavels", force: :cascade do |t|
     t.string "body", null: false
     t.datetime "created_at", null: false
@@ -39,7 +47,7 @@ ActiveRecord::Schema.define(version: 2019_03_05_083435) do
     t.bigint "user_id"
     t.bigint "task_id"
     t.integer "term"
-    t.integer "read"
+    t.integer "read", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["task_id"], name: "index_notifications_on_task_id"

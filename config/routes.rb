@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'groups/index'
+  get 'groups/new'
+  get 'groups/create'
+  get 'groups/edit'
+  get 'groups/update'
+  get 'groups/destroy'
   ActiveAdmin.routes(self)
   root to: 'tasks#index'
   get 'signup', to: 'users#new'
