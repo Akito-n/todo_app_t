@@ -16,6 +16,7 @@
  *= require_self
  */
 @import 'bulma';
+@import "font-awesome";
 $main-color: (darkcyan);
 
 .navbar {
@@ -93,7 +94,7 @@ ul.tagit li.tagit-choice .tagit-label:not(a) {
   width: 350px;
 }
 .red {
-  background-color: #ef2525c2;
+  background-color: #ef252533;
   border-radius: 8px;
   border: 1px solid #b37171;
   color: white;
@@ -102,11 +103,29 @@ ul.tagit li.tagit-choice .tagit-label:not(a) {
 
 }
 .yellow {
-  background-color: #efba25e6;
+  background-color: #efba2569;
   border-radius: 8px;
-  border: 1px solid #b37171;
+  border: 1px solid #c9ce16;
   color: white;
   margin-bottom: 1px;
   font-weight: bold;
+
+}
+.done {
+  background-color: #00800563;
+}
+
+.dropdown-item a {
+  color: #403131;
+}
+.alert-button {
+  padding-bottom: 2.3em;
+}
+
+/*font-awsome color*/
+.alert-active {
+  color:#fb7540;
+}
+.alert-non-active {
 
 }
