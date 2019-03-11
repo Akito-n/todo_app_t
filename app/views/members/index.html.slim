@@ -1,0 +1,23 @@
+.content
+  .columns
+    .column
+      h1=t('.title')
+      =link_to t('.new'), new_group_member_path, class: 'button is-primary'
+    .column
+  .columns
+  .columns
+    .column
+  .columns
+    .column
+        table.table.is-striped
+          thead
+            tr
+              th =t('.name')
+              th =t('.role')
+              th =t('.delete')
+          tbody
+            - @members.each do |member|
+              tr
+                td =member.users
+                td =member.role
+                td =link_to fa_icon("trash 2x"), group_path(group), method: :delete,data: {confirm: 'いいんすか？'}
