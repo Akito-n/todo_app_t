@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_10_051705) do
+ActiveRecord::Schema.define(version: 2019_03_11_072237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,7 +48,9 @@ ActiveRecord::Schema.define(version: 2019_03_10_051705) do
     t.integer "role", default: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
     t.index ["group_id"], name: "index_members_on_group_id"
+    t.index ["user_id"], name: "index_members_on_user_id"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -95,5 +97,6 @@ ActiveRecord::Schema.define(version: 2019_03_10_051705) do
     t.integer "role", default: 0, null: false
   end
 
+  add_foreign_key "members", "users"
   add_foreign_key "tasks", "groups"
 end

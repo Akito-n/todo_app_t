@@ -47,3 +47,9 @@ ja:
       edit: 編集
       delete: 削除
       term: 期日
+  members:
+    index:
+      title: メンバー一覧
+      new: メンバーを招待する
+      name: 名前
+      role: 権限

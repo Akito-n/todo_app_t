@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   resources :groups, shallow: true do
     resources :tasks
+    resources :members
   end
   get 'users', to: 'users#new'
   get 'login', to: 'sessions#new'

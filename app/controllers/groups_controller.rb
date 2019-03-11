@@ -13,6 +13,7 @@ class GroupsController < ApplicationController
   def create
     @group = @current_user.groups.build(group_params)
     if @group.save && @current_user.groups << @group
+      @group.members.create(role: 2, user_id: @current_user.id)
       flash[:success] = t('.success')
       redirect_to controller: 'groups', action: 'index'
     else

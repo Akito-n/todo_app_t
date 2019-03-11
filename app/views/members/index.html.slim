@@ -18,6 +18,6 @@
           tbody
             - @members.each do |member|
               tr
-                td =member.users
+                td =member.user.name
                 td =member.role
-                td =link_to fa_icon("trash 2x"), group_path(group), method: :delete,data: {confirm: 'いいんすか？'}
+                td =link_to fa_icon("trash 2x"), member_path(member), method: :delete,data: {confirm: 'いいんすか？'}
