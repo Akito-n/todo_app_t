@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy]
   before_action :set_autocomplete_tag, only: %i[new edit]
-  before_action :set_lavel_list, only: %i[create, update]
+  before_action :set_lavel_list, only: %i[create update]
   before_action :set_group, only: %i[new create]
   before_action :require_user_logged_in
 

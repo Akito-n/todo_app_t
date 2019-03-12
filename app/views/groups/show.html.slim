@@ -15,7 +15,7 @@ div.content
         thead
           tr
             th =t('tasks.show.title')
-            th =t('tasks.show.description')
+            th =t('.creater')
             th =sort_link(@search, :term, t('.term'))
             th =sort_link(@search, :created_at, t('.created_at'),default_order: :asc)
             th =t('activerecord.attributes.task.status')
@@ -26,7 +26,7 @@ div.content
           - @tasks.each do |task|
             tr
               td =link_to task.title, task_path(task)
-              td =task.description
+              td =task.user.name
               td =task.term
               td =l(task.created_at, format: :default)
               td =t(Task.statuses_i18n[task.status])

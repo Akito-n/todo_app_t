@@ -47,6 +47,7 @@ ja:
       edit: 編集
       delete: 削除
       term: 期日
+      creater: 作成者
   members:
     index:
       title: メンバー一覧

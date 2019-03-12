@@ -25,7 +25,7 @@ class GroupsController < ApplicationController
 
   def show
     @search = @group.tasks.ransack(params[:q])
-    @tasks = @search.result.page(params[:page]).per(10)
+    @tasks = @search.result.includes(:user).page(params[:page]).per(10)
   end
 
   def edit
