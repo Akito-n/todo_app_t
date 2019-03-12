@@ -53,3 +53,5 @@ ja:
       new: メンバーを招待する
       name: 名前
       role: 権限
+    new:
+      invite: 招待

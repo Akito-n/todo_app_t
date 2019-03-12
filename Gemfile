@@ -46,6 +46,7 @@ gem 'jquery-ui-rails'
 gem 'gon'
 gem 'whenever'
 gem 'font-awesome-rails'
+gem 'nested_form'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

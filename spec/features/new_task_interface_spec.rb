@@ -8,6 +8,7 @@ RSpec.feature 'task_CRUD', type: :feature do
 
   let!(:user) { create(:user) }
   let!(:group) { create(:group) }
+  let!(:member) { create(:member, user: user, group: group ) }
 
   before do
     visit login_path

@@ -15,5 +15,6 @@
 //= require jquery-ui
 //= require tag-it
 //= require activestorage
+//= require jquery_nested_form
 //= require turbolinks
 //= require_tree .

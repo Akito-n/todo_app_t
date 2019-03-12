@@ -1,9 +1,10 @@
 class GroupsController < ApplicationController
   before_action :require_user_logged_in
   before_action :set_group, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_current_user_be_in_group, only: [:show, :edit, :update, :destroy]
   def index
-    @groups = @current_user.groups
+    @members = @current_user.members.includes(:group)
+    set_groups(@members)
   end
 
   def new
@@ -49,6 +50,13 @@ class GroupsController < ApplicationController
   end
 
   def set_group
-    @group = @current_user.groups.find(params[:id])
+    @group = @current_user.members.where(group_id: params[:id]).first.group
+  end
+
+  def set_groups(members)
+    @groups = []
+    members.each do |member|
+      @groups << member.group
+    end
   end
 end

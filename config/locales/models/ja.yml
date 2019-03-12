@@ -25,3 +25,7 @@ ja:
       role:
         member: 一般
         admin: 管理者
+    member:
+      role:
+        manager: オーナー
+        member: メンバー
