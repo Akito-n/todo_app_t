@@ -4,6 +4,7 @@ div.content
       h1= @group.name
       =link_to t('.new'), new_group_task_path(group_id: @group.id), class: 'button is-primary'
     div.column
+      =render 'tasks/drop', { notifications: @notifications }
       =link_to t('.member'), group_members_path(group_id: @group.id), class: 'button is-success'
   div.columns
   =render 'tasks/search_form', { search: @search }

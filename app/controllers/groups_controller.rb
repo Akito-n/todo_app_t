@@ -26,6 +26,7 @@ class GroupsController < ApplicationController
   def show
     @search = @group.tasks.ransack(params[:q])
     @tasks = @search.result.includes(:user).page(params[:page]).per(10)
+    @notifications = @group.notifications.includes(:task)
   end
 
   def edit

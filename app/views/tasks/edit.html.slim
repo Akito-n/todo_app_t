@@ -5,15 +5,15 @@
         =f.label t('tasks.form.lavel'), class: 'label'
         ul#task_lavels
     .field
-      =f.label :title, t('.title'), class: 'label'
+      =f.label :title, t('tasks.show.title'), class: 'label'
       .control
         =f.text_field :title, placeholder: "ToDo Title", value: @task.title, class: 'input'
     .field
-      =f.label :description, t('.description'), class: 'label'
+      =f.label :description, t('tasks.show.description'), class: 'label'
       .control
         =f.text_field :description, placeholder: "Description", value: @task.description, class: 'input'
     .field
-      =f.label :term, t('.limit'), class: 'label'
+      =f.label :term, t('tasks.index.term'), class: 'label'
       .control
         =f.date_field :term, class:'custom-date_field'
     .field.is-grouped

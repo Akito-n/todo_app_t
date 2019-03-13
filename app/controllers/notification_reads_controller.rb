@@ -1,13 +1,7 @@
 class NotificationReadsController < ApplicationController
 
-  def update
+  def create
     @notification = Notification.find(params[:id])
-    if @notification.update(read: 1)
-      flash[:succsess] = ''
-      redirect_to controller: 'tasks', action: 'index'
-    else
-      flash[:danger] = ''
-      redirect_to controller: 'tasks', action: 'index'
-    end
+    @notification.update(read: 1)
   end
 end
