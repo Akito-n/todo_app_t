@@ -6,3 +6,6 @@
       h4 =t('.description')
       p= @task.description
       = link_to t('.back'), root_path
+    .column
+      -unless @task.image.file.nil?
+        =image_tag @task.image.url

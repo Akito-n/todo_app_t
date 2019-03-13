@@ -47,6 +47,9 @@ gem 'gon'
 gem 'whenever'
 gem 'font-awesome-rails'
 gem 'nested_form'
+gem 'carrierwave'
+gem 'fog-aws'
+gem 'dotenv-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

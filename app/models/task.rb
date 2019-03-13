@@ -11,6 +11,8 @@ class Task < ApplicationRecord
   enum status: { waiting: 0, warking: 1, completed: 2 }
   enum priority: { low: 0, middle: 1, high: 2 }
 
+  mount_uploader :image, ImageUploader
+
   def save_lavels(lavels)
     lavels = [] if lavels.nil?
     current_lavels = self.lavels.pluck(:body) unless self.lavels.nil?

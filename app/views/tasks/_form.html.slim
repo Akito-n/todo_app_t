@@ -9,6 +9,11 @@
       .control
         =f.text_field :title, placeholder: "ToDo Title", value: task.title, class: 'input'
     .field
+      =f.file_field :image, id: 'post_image'
+      =f.hidden_field :image_cache
+      div.photo-area
+        img#preview.preview-size.hidden src=""
+    .field
       =f.label :description, t('.description'), class: 'label'
       .control
         =f.text_field :description, placeholder: "Description", value: task.description, class: 'input'
