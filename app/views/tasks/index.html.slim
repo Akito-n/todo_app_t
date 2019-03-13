@@ -4,6 +4,7 @@ div.content
       h1=t('.title')
       =link_to t('.new'), new_task_path, class: 'button is-primary'
     div.column
+      =render 'drop', { notifications: @notifications }
   div.columns
   =render 'search_form', { search: @search }
   .columns
@@ -34,3 +35,5 @@ div.content
               td =link_to t('.delete'), task_path(task),method: :delete, data: {confirm: '削除しますか？'}
   .columns
     .column.is-3.is-offset-9=paginate @tasks
+  .columns
+    .column

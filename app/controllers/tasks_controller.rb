@@ -7,6 +7,7 @@ class TasksController < ApplicationController
   def index
     @search = @current_user.tasks.ransack(params[:q])
     @tasks = @search.result.page(params[:page]).per(10)
+    @notifications = @current_user.notifications.includes(:task)
   end
 
   def new
