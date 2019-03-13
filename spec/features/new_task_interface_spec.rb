@@ -35,7 +35,7 @@ RSpec.feature 'task_CRUD', type: :feature do
     task
     click_link 'テストグループ'
     click_link '編集'
-    fill_in 'Title', with: 'title_edited'
+    fill_in 'タイトル', with: 'title_edited'
     click_button '更新'
     expect(page).to have_css '.alert'
     expect(page).to have_content 'title_edited'
