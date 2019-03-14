@@ -1,0 +1,28 @@
+.field
+  =form_with model:task, :builder => CustomFormBuilder, local: true do |f|
+    .field
+      .control
+        =f.label t('.lavel'), class: 'label'
+        ul#task_lavels
+    .field
+      =f.label :title, t('.title'), class: 'label'
+      .control
+        =f.text_field :title, placeholder: "ToDo Title", value: task.title, class: 'input'
+    .field
+      =f.label :description, t('.description'), class: 'label'
+      .control
+        =f.text_field :description, placeholder: "Description", value: task.description, class: 'input'
+    .field
+      =f.label :term, t('.limit'), class: 'label'
+      .control
+        =f.date_field :term, class:'custom-date_field'
+    .field.is-grouped
+      .control=f.label :status, t('activerecord.attributes.task.status'), class: 'label-position-down'
+      .select.control
+        =f.select :status, Task.statuses.map{ |key, val| [Task.statuses_i18n[key],key] }
+      .control=f.label :priority, t('activerecord.attributes.task.priority'),class: 'label-position-down'
+      .select.control
+          =f.select :priority, Task.priorities.map{ |key, val| [Task.priorities_i18n[key],key] }
+    .field
+      .control
+        =f.submit class: 'button is-primary'

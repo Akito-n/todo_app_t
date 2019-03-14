@@ -1,0 +1,40 @@
+div.content
+  div.columns
+    div.column
+      h1= @group.name
+      =link_to t('.new'), new_group_task_path(group_id: @group.id), class: 'button is-primary'
+    div.column
+      =render 'tasks/drop', { notifications: @notifications }
+      =link_to t('.member'), group_members_path(group_id: @group.id), class: 'button is-success'
+  div.columns
+  =render 'tasks/search_form', { search: @search }
+  .columns
+    .column.is-3.is-offset-9=paginate @tasks
+  .columns
+    .column
+      table.table.is-striped
+        thead
+          tr
+            th =t('tasks.show.title')
+            th =t('.creater')
+            th =sort_link(@search, :term, t('.term'))
+            th =sort_link(@search, :created_at, t('.created_at'),default_order: :asc)
+            th =t('activerecord.attributes.task.status')
+            th =sort_link(@search, :priority, t('activerecord.attributes.task.priority'))
+            th
+            th
+        tbody
+          - @tasks.each do |task|
+            tr
+              td =link_to task.title, task_path(task)
+              td =task.user.name
+              td =task.term
+              td =l(task.created_at, format: :default)
+              td =t(Task.statuses_i18n[task.status])
+              td =t(Task.priorities_i18n[task.priority])
+              td =link_to t('.edit'), edit_task_path(task)
+              td =link_to t('.delete'), task_path(task),method: :delete, data: {confirm: '削除しますか？'}
+  .columns
+    .column.is-3.is-offset-9=paginate @tasks
+  .columns
+    .column

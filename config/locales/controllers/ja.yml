@@ -9,3 +9,10 @@ ja:
   sessions:
     success: 'ログインしました！'
     faild: 'ログインできませんでした。メールアドレスかパスワードが間違っています。'
+  groups:
+    success: 'グループを作成しました'
+    delete: 削除しました！
+    delete-faild: 削除できませんでした！
+  members:
+    delete: 削除しました
+    delete-faild: 削除できませんでした

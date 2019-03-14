@@ -1,0 +1,6 @@
+- if notification.yet?
+  .dropdown-item id="yet#{notification.id}" class=("#{notification.term} #{notification.read}") =link_to notification.task.title, read_path(notification), method: :post, remote: true
+-else
+  .dropdown-item
+    div
+      = fa_icon("check", text: notification.task.title)

@@ -1,6 +1,6 @@
 class Notification < ApplicationRecord
   belongs_to :task
-  belongs_to :user
+  belongs_to :group
 
   enum term: { green: 0, yellow: 1, red: 2 }
   enum read: { yet: 0, done: 1 }
@@ -38,12 +38,13 @@ class Notification < ApplicationRecord
     tasks = Task.where.not(term: nil, status: 2)
     tasks.each do |task|
       # タスクの期限が3日以内だった場合
+      #byebug
       if Time.current <= task.term && task.term < Time.current.since(3.days)
-        notification = Notification.find_or_create_by(task_id: task.id, user_id: task.user_id)
+        notification = Notification.find_or_create_by(task_id: task.id, group_id: task.group_id)
         notification.update(term: 1)
       # 期限が過ぎていた場合
       elsif task.term < Time.current
-        notification = Notification.find_or_create_by(task_id: task.id, user_id: task.user_id)
+        notification = Notification.find_or_create_by(task_id: task.id, group_id: task.group_id)
         notification.update(term: 2)
       end
     end

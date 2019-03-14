@@ -1,0 +1,26 @@
+.content
+  .columns
+    .column
+      h1=t('.title')
+      =link_to t('.new'), new_group_member_path, class: 'button is-primary'
+    .column
+  .columns
+  .columns
+    .column
+  .columns
+    .column
+        table.table.is-striped
+          thead
+            tr
+              th =t('.name')
+              th =t('.role')
+              th =t('.delete')
+          tbody
+            - @members.each do |member|
+              tr
+                td =member.user.name
+                td =t(Member.roles_i18n[member.role])
+                -unless member.manager?
+                  td =link_to fa_icon("trash 2x"), member_path(member, group_id: @group.id), method: :delete,data: {confirm: 'グループから除外しますか？'}, class: 'delete-button'
+                -else
+                  td = fa_icon("times 2x")

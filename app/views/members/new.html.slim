@@ -1,0 +1,6 @@
+.field
+  =form_with scope: :info, url: group_members_path(group_id: @group.id), method: :post, local: true do |f|
+    =f.label "招待したいユーザーのメールアドレスを入力してください。複数存在する場合カンマで区切ってください。"
+    .field
+      =f.text_area :email, class: 'input email-area'
+    =f.submit t('.invite'), class: 'button is-primary'
