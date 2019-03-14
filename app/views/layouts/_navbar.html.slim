@@ -9,8 +9,11 @@ nav.navbar aria-label=("main navigation") role="navigation"
     .navbar-end
       .navbar-item
         -if logged_in?
-          a href="https://ja.gravatar.com/" target="_new"
-            img src="#{gravatar_url(@current_user, {size: 50})}"
+          =link_to plofile_path
+            -if @current_user.avatar?
+              =image_tag @current_user.avatar.thumb.url
+            -else
+              =image_tag('thumb.jpg')
       .navbar-item
         .buttons
           -if logged_in?
