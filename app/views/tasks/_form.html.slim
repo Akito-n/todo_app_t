@@ -14,6 +14,8 @@
       div.photo-area
         img#preview.preview-size.hidden src=""
     .field
+      =f.check_box :remove_image
+      span =t('.delete-image')
       =f.label :description, t('.description'), class: 'label'
       .control
         =f.text_field :description, placeholder: "Description", value: task.description, class: 'input'
