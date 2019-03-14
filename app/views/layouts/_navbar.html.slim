@@ -8,6 +8,10 @@ nav.navbar aria-label=("main navigation") role="navigation"
   #navbarBasicExample.navbar-menu
     .navbar-end
       .navbar-item
+        -if logged_in?
+          a href="https://ja.gravatar.com/" target="_new"
+            img src="#{gravatar_url(@current_user, {size: 50})}"
+      .navbar-item
         .buttons
           -if logged_in?
             =link_to 'Log Out', logout_path, method: :delete, class: 'button is-custom-logout'
