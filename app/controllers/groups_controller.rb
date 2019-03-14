@@ -4,7 +4,7 @@ class GroupsController < ApplicationController
   before_action :require_current_user_be_in_group, only: [:show, :edit, :update, :destroy]
   def index
     @members = @current_user.members.includes(:group)
-    set_groups(@members)
+    set_groups
   end
 
   def new
@@ -54,10 +54,7 @@ class GroupsController < ApplicationController
     @group = @current_user.members.where(group_id: params[:id]).first.group
   end
 
-  def set_groups(members)
-    @groups = []
-    members.each do |member|
-      @groups << member.group
-    end
+  def set_groups
+    @groups = @members.map { |member| member.group }
   end
 end

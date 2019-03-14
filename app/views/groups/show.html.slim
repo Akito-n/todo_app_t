@@ -6,6 +6,7 @@ div.content
     div.column
       =render 'tasks/drop', { notifications: @notifications }
       =link_to t('.member'), group_members_path(group_id: @group.id), class: 'button is-success'
+      =link_to t('.calender'), group_calenders_path(group_id: @group.id), class: 'button is-primary calender'
   div.columns
   =render 'tasks/search_form', { search: @search }
   .columns

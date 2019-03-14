@@ -13,6 +13,7 @@
  *= require jquery.tagit
  *= require tagit.ui-zendesk
  *= require font-awesome
+ *= require simple_calendar
  *= require_self
  */
 @import 'bulma';
@@ -142,4 +143,51 @@ ul.tagit li.tagit-choice .tagit-label:not(a) {
 .preview-size{
   width: 150px;
   height: 150px;
+}
+.uploaded-image {
+  width: 150px;
+  height: 150px;
+}
+
+.calender {
+  margin-left: 3px;
+}
+
+
+.simple-calendar {
+  .day {}
+/*sunday ~ friday*/
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {
+    background-color: #45b7a6;
+  }
+  .past {
+  }
+  .future {}
+
+  .start-date {
+  }
+
+  .prev-month {}
+  .next-month { }
+  .current-month {}
+
+  .has-events {background-color: #80c3b952;}
+}
+
+thead.calender tr th:nth-child(7) {
+  color: #ff1901;
+}
+thead.calender tr th:nth-child(6) {
+  color: #1d67de;
+}
+thead.calender tr {
+  background-color: #0ca58d59;
 }
