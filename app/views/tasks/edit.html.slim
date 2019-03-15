@@ -14,7 +14,7 @@
       div.photo-area
         - if @task.image?
           .uploaded-image=image_tag @task.image.url
-          img#preview.preview-size.hidden src=""
+        img#preview.preview-size.hidden src=""
     .field
       =f.check_box :remove_image
       span =t('tasks.form.delete-image')

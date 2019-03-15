@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :members
     resources :calenders, only: [:index]
   end
+  resource :plofile, only: [:show, :edit, :update]
+  post 'plofile', to: 'plofiles#update'
   get 'users', to: 'users#new'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'

@@ -16,6 +16,8 @@ class User < ApplicationRecord
   before_destroy :count_admin_user_for_destroy
   before_update :count_admin_user_for_edit
 
+  mount_uploader :avatar, AvatarUploader
+
   def count_admin_user_for_destroy
     if User.all.admin.count == 1 && admin?
       errors.add :base, ''

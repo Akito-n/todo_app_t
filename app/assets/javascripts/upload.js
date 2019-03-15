@@ -16,6 +16,7 @@ $( document ).on('turbolinks:load', function() {
         $("#preview").attr("src", e.target.result);
         $("#preview").attr("title", file.name);
         $("#preview").removeClass("hidden");
+        $(".noavatar-image").addClass("hidden");
         $(".uploaded-image").addClass("hidden");
       };
     })(file);
