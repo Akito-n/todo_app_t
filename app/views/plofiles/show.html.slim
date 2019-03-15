@@ -4,7 +4,7 @@
       -if @current_user.avatar?
         =image_tag @current_user.avatar.url
       -else
-        
+        =image_tag('noplofile.jpg')
   .columns
     .column.is-half.is-offset-one-quarter
       =@current_user.name
