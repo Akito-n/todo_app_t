@@ -18,7 +18,7 @@ $( document ).on('turbolinks:load', function() {
         $("#preview").attr("title", file.name);
         $("#preview").removeClass("hidden");
         $(".noavatar-image").addClass("hidden");
-        $(".uploaded-image").addClass("hidden");
+        $(".plofile-image").addClass("hidden");
       };
     })(file);
     reader.readAsDataURL(file);
