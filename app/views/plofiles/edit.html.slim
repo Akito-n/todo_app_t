@@ -3,7 +3,7 @@
     .column.is-half.is-offset-one-quarter
       .photo-area
         -if @current_user.avatar?
-          .uploaded-image=image_tag @current_user.avatar.url
+          .plofile-image=image_tag @current_user.avatar.url
         -else
           .noavatar-image=image_tag('noplofile.jpeg')
         img#preview.preview-size.hidden src=""
@@ -11,7 +11,7 @@
     .column.is-half.is-offset-one-quarter
       =form_with model: @current_user, url: plofile_path, method: :post, local: true do |f|
        .field
-         =f.file_field :avatar, id:'post_image'
+         =f.file_field :avatar, id:'plofile_image'
        .field
          =f.label :name, t('users.new.name')
          =f.text_field :name, value: @current_user.name, class: 'input'
