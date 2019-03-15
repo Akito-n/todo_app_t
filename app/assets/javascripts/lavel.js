@@ -9,4 +9,4 @@ $(document).on('turbolinks:load', function() {
       $('#task_lavels').tagit('createTag', lavels[i])
     }
   }
-})
+});

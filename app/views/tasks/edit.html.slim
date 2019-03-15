@@ -9,6 +9,16 @@
       .control
         =f.text_field :title, placeholder: "ToDo Title", value: @task.title, class: 'input'
     .field
+      =f.file_field :image, id: 'post_image'
+      =f.hidden_field :image_cache
+      div.photo-area
+        - if @task.image?
+          .uploaded-image=image_tag @task.image.url
+          img#preview.preview-size.hidden src=""
+    .field
+      =f.check_box :remove_image
+      span =t('tasks.form.delete-image')
+    .field
       =f.label :description, t('tasks.show.description'), class: 'label'
       .control
         =f.text_field :description, placeholder: "Description", value: @task.description, class: 'input'
