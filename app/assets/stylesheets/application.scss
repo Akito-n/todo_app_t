@@ -141,8 +141,8 @@ ul.tagit li.tagit-choice .tagit-label:not(a) {
 }
 
 .preview-size{
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 250px;
 }
 .uploaded-image {
   width: 150px;
@@ -194,4 +194,15 @@ thead.calender tr {
 /*plofile*/
 .plofile * {
   text-align: center;
+}
+
+.plofile-area {
+
+  height: 250px;
+  max-width: 500px;
+  max-height: 500px;
+}
+
+.plofile-image image {
+  margin: auto;
 }
