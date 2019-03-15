@@ -1,5 +1,5 @@
 = month_calendar(attribute: :term, events: @tasks ) do |date, tasks|
-  =date.to_formatted_s(:middle)
+  =date
   -tasks.each do |task|
     div
       =link_to task.title, task_path(task)
