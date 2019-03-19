@@ -9,7 +9,7 @@
         img#preview.preview-size.hidden src=""
   .columns
     .column.is-half.is-offset-one-quarter
-      =form_with model: @current_user, url: plofile_path, method: :post, local: true do |f|
+      =form_with model: @current_user, url: plofile_path, method: :patch, local: true do |f|
        .field
          =f.file_field :avatar, id:'plofile_image'
        .field

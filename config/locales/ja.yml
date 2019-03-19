@@ -1,4 +1,6 @@
 ja:
+  common:
+    back: 戻る
   time:
     formats:
       default: ! '%Y/%m/%d'
@@ -57,3 +59,8 @@ ja:
       role: 権限
     new:
       invite: 招待
+  calenders:
+    index:
+  simple_calendar:
+    previous: 前月
+    next: 来月
