@@ -1,4 +1,5 @@
 class Task < ApplicationRecord
+  include RankedModel
   
 
   belongs_to :user
