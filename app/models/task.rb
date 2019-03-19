@@ -1,6 +1,7 @@
 class Task < ApplicationRecord
   include RankedModel
   ranks :row_order,:column => :row_order, :class_name => 'Task'
+  
 
   belongs_to :user
   belongs_to :group
