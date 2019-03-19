@@ -27,3 +27,10 @@
      password: 'password'
    )
  end
+
+ User.create!(
+   name: 'Admin',
+   email: 'sample@test.com',
+   password: 'password',
+   role: 1
+ )
