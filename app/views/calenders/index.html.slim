@@ -1,0 +1,7 @@
+= month_calendar(attribute: :term, events: @tasks ) do |date, tasks|
+  =date
+  -tasks.each do |task|
+    div
+      =link_to task.title, task_path(task)
+      div=t(Task.statuses_i18n[task.status])
+=link_to t('common.back'), group_path(@group), class: 'button is-success'
