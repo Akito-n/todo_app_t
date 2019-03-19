@@ -76,7 +76,6 @@ ActiveRecord::Schema.define(version: 2019_03_19_022505) do
   create_table "tasks", force: :cascade do |t|
     t.string "title", null: false
     t.text "description", default: ""
-    t.integer "row_order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "term"
@@ -85,6 +84,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_022505) do
     t.bigint "user_id"
     t.bigint "group_id"
     t.string "image"
+    t.integer "row_order"
     t.index ["group_id"], name: "index_tasks_on_group_id"
     t.index ["title"], name: "index_tasks_on_title"
     t.index ["user_id"], name: "index_tasks_on_user_id"
