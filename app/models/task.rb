@@ -1,4 +1,7 @@
 class Task < ApplicationRecord
+  include RankedModel
+  ranks :row_order, class_name: 'Task'
+
   belongs_to :user
   belongs_to :group
   has_one :notification, dependent: :destroy
