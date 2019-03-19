@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_14_144754) do
+ActiveRecord::Schema.define(version: 2019_03_19_095017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 2019_03_14_144754) do
     t.bigint "user_id"
     t.bigint "group_id"
     t.string "image"
+    t.integer "sss"
     t.index ["group_id"], name: "index_tasks_on_group_id"
     t.index ["title"], name: "index_tasks_on_title"
     t.index ["user_id"], name: "index_tasks_on_user_id"
