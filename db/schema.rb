@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_022505) do
 
   create_table "notifications", force: :cascade do |t|
     t.bigint "task_id"
-    t.integer "rspec"
+    t.integer "term"
     t.integer "read", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
