@@ -154,30 +154,9 @@ ul.tagit li.tagit-choice .tagit-label:not(a) {
 
 
 .simple-calendar {
-  .day {}
-/*sunday ~ friday*/
-  .wday-0 {}
-  .wday-1 {}
-  .wday-2 {}
-  .wday-3 {}
-  .wday-4 {}
-  .wday-5 {}
-  .wday-6 {}
-
   .today {
     background-color: #45b7a6;
   }
-  .past {
-  }
-  .future {}
-
-  .start-date {
-  }
-
-  .prev-month {}
-  .next-month { }
-  .current-month {}
-
   .has-events {background-color: #80c3b952;}
 }
 
@@ -190,6 +169,14 @@ thead.calender tr th:nth-child(6) {
 thead.calender tr {
   background-color: #0ca58d59;
 }
+td.day {
+  width: 150px;
+  height: 150px;
+}
+.calender-table {
+  width: 100%;
+}
+
 
 /*plofile*/
 .plofile * {

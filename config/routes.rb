@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'calender/index'
   ActiveAdmin.routes(self)
   root to: 'groups#index'
   get 'signup', to: 'users#new'
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
   resources :groups, shallow: true do
     resources :tasks
     resources :members
+    resources :calenders, only: [:index]
   end
   resource :plofile, only: [:show, :edit, :update]
   post 'plofile', to: 'plofiles#update'
