@@ -1,5 +1,4 @@
 $( document ).on('turbolinks:load', function() {
-  console.log('s');
   $('#plofile_image').change(function(e){
     //ファイルオブジェクトを取得する
     var file = e.target.files[0];

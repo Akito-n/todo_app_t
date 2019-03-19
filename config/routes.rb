@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   resources :groups, shallow: true do
     resources :tasks
+    resources :custom_task_lists, only: [:index] do
+      put :sort
+    end
     resources :members
     resources :calenders, only: [:index]
   end
