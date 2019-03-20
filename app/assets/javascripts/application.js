@@ -11,10 +11,12 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require rails-ujs
 //= require jquery-ui
 //= require tag-it
 //= require activestorage
+//= require jquery-ui/widgets/sortable
 //= require jquery_nested_form
-//= require turbolinks
 //= require_tree .
+//= require turbolinks

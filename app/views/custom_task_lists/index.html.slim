@@ -4,38 +4,35 @@ div.content
       h1= @group.name
       =link_to t('.new'), new_group_task_path(group_id: @group.id), class: 'button is-primary'
     div.column
-      =render 'tasks/drop', { notifications: @notifications }
       =link_to t('.member'), group_members_path(group_id: @group.id), class: 'button is-success'
       =link_to t('.calender'), group_calenders_path(group_id: @group.id), class: 'button is-primary calender'
-      =link_to t('.custom'), group_custom_task_lists_path(group_id: @group.id), class: 'button is-info custom'
   div.columns
-  =render 'tasks/search_form', { search: @search }
+
   .columns
     .column.is-3.is-offset-9=paginate @tasks
   .columns
     .column
-      table.table.is-striped
+      table.table.is-striped.table-sortable
         thead
           tr
             th =t('tasks.show.title')
-            th =t('.creater')
-            th =sort_link(@search, :term, t('.term'))
-            th =sort_link(@search, :created_at, t('.created_at'),default_order: :asc)
+            th =t('groups.show.creater')
+            th =t('tasks.index.term')
+            th =t('tasks.index.created_at')
             th =t('activerecord.attributes.task.status')
-            th =sort_link(@search, :priority, t('activerecord.attributes.task.priority'))
-            th
+            th =t('tasks.index.priority')
             th
         tbody
           - @tasks.each do |task|
-            tr
+            tr.item(data = {model_name: task.class.name.underscore, update_url:  custom_task_list_sort_path(task, group_id: @group)})
               td =link_to task.title, task_path(task)
               td =task.user.name
               td =task.term
               td =l(task.created_at, format: :default)
               td =t(Task.statuses_i18n[task.status])
               td =t(Task.priorities_i18n[task.priority])
-              td =link_to t('.edit'), edit_task_path(task)
-              td =link_to t('.delete'), task_path(task),method: :delete, data: {confirm: '削除しますか？'}
+              td =link_to t('tasks.index.edit'), edit_task_path(task)
+              td =link_to t('tasks.index.delete'), task_path(task),method: :delete, data: {confirm: '削除しますか？'}
   .columns
     .column.is-3.is-offset-9=paginate @tasks
   .columns
