@@ -288,10 +288,11 @@ ActiveAdmin.setup do |config|
   # config.footer = 'my custom footer text'
   config.view_factory.footer = ActiveAdmin::Component
   # == Sorting
-  #
-  # By default ActiveAdmin::OrderClause is used for sorting logic
-  # You can inherit it with own class and inject it for all resources
-  #
+  config.namespace :admin do |admin|
+    admin.build_menu do |menu|
+      menu.add label: "Graph", url: "/"
+    end
+  end
   # config.order_clause = MyOrderClause
   config.comments = false
 end
