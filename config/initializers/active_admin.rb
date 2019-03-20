@@ -290,7 +290,7 @@ ActiveAdmin.setup do |config|
   # == Sorting
   config.namespace :admin do |admin|
     admin.build_menu do |menu|
-      menu.add label: "Graph", url: "/"
+      menu.add label: "Graph", url: "admin/graphs"
     end
   end
   # config.order_clause = MyOrderClause
