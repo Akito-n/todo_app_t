@@ -364,7 +364,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave
   chartable
-  chartkick
+  chartkick (= 3.0.2)
   chromedriver-helper
   coffee-rails (~> 4.2)
   dotenv-rails

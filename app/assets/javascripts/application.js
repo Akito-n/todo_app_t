@@ -18,5 +18,7 @@
 //= require activestorage
 //= require jquery-ui/widgets/sortable
 //= require jquery_nested_form
+//= require Chart.bundle
+//= require chartkick
 //= require_tree .
 //= require turbolinks
