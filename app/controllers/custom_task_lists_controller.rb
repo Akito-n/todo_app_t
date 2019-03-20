@@ -8,11 +8,9 @@ class CustomTaskListsController < ApplicationController
   end
 
   def sort
-    @task = Task.find(params[:custom_task_list_id])
-    @group = Group.find(params[:group_id])
-    if check_authenticate
-      @task.update(task_params)
-    end
+    @group = @current_user.groups.find(params[:group_id])
+    @task = @group.tasks.find(params[:custom_task_list_id])
+    @task.update(task_params)
     render body: nil
   end
 
@@ -26,13 +24,4 @@ class CustomTaskListsController < ApplicationController
   def task_params
     params.require(:task).permit(:row_order_position)
   end
-
-  def check_authenticate
-    if @task.group_id == @group.id && be_in_group?
-       true
-    else
-       false
-    end
-  end
-
 end
