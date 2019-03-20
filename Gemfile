@@ -52,7 +52,7 @@ gem 'fog-aws'
 gem 'dotenv-rails'
 gem "simple_calendar", "~> 2.0"
 gem 'rmagick'
-gem 'ranked-model', :git => 'https://github.com/mixonic/ranked-model.git'
+gem 'ranked-model', '0.4.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
