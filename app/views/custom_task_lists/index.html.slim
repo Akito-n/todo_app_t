@@ -16,11 +16,11 @@ div.content
         thead
           tr
             th =t('tasks.show.title')
-            th =t('tasks.index.created_at')
+            th =t('groups.show.creater')
             th =t('tasks.index.term')
-            th 作成日
+            th =t('tasks.index.created_at')
             th =t('activerecord.attributes.task.status')
-            th 優先度
+            th =t('tasks.index.priority')
             th
         tbody
           - @tasks.each do |task|
