@@ -1,1 +1,10 @@
-=link_to '戻る', admin_root_path, class: 'button is-primary'
+.content
+  =link_to '戻る', admin_root_path, class: 'button is-primary'
+  .columns
+    .column
+      p タスクの投稿件数
+      =column_chart(@user_data)
+  .columns
+    .column
+      p ラベルの使用頻度
+      =bar_chart(@lavel_data)
