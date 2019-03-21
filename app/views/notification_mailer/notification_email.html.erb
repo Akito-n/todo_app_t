@@ -1,0 +1,8 @@
+<h1><%= @user.name %>様、Todo_Appからのお知らせがあります。</h1>
+    <p>
+      <%= @task.title %>の期限が迫っています。
+    </p>
+    <p>
+      期限：<%= @task.term.strftime("%Y年　%m月 %d日") %>
+    </p>
+    <p><%= link_to '確認する', root_url %></p>
