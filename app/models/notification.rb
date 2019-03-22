@@ -42,7 +42,7 @@ class Notification < ApplicationRecord
       if Time.current <= task.term && task.term < Time.current.since(3.days)
         notification = Notification.find_or_create_by(task_id: task.id, group_id: task.group_id)
         notification.update(term: 1)
-        NotificationMailer.notification_email(User.find_by(id: task.user_id), task).deliver
+        NotificationMailer.notification_email(task.user, task).deliver
       # 期限が過ぎていた場合
       elsif task.term < Time.current
         notification = Notification.find_or_create_by(task_id: task.id, group_id: task.group_id)
