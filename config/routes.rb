@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   get 'calender/index'
   ActiveAdmin.routes(self)
+  namespace :admin do
+    resource :graphs, only: [:show]
+  end
   root to: 'groups#index'
   get 'signup', to: 'users#new'
   #resources :tasks
