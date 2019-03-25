@@ -66,4 +66,17 @@ Rails.application.configure do
     Bullet.console = true # ブラウザのコンソールログに記録
     Bullet.rails_logger = true # Railsログに出力
   end
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method       = :smtp
+  config.action_mailer.default_url_options   = { host: ENV['SENDGRID_HOST'] }
+  ActionMailer::Base.smtp_settings           = {
+      address:              ENV['SENDGRID_ADDRESS'],
+      port:                 '587',
+      authentication:       :plain,
+      user_name:            ENV['SENDGRID_USERNAME'],
+      password:             ENV['SENDGRID_PASSWORD'],
+      domain:               ENV['SENDGRID_DOMAIN'],
+      enable_starttls_auto: true
+  }
 end
