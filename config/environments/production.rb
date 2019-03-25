@@ -97,7 +97,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options   = { host: ENV['SENDGRID_HOST'] }
   ActionMailer::Base.smtp_settings           = {
       address:              ENV['SENDGRID_ADDRESS'],
-      port:                 ENV['SENDGRID_PORT'],
+      port:                 '587',
       authentication:       :plain,
       user_name:            ENV['SENDGRID_USERNAME'],
       password:             ENV['SENDGRID_PASSWORD'],
