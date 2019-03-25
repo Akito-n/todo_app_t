@@ -69,14 +69,14 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method       = :smtp
-  config.action_mailer.default_url_options   = { host: 'nagai-task-app.herokuapp.com' }
+  config.action_mailer.default_url_options   = { host: ENV['SENDGRID_HOST'] }
   ActionMailer::Base.smtp_settings           = {
-      address:              'smtp.sendgrid.net',
+      address:              ENV['SENDGRID_ADDRESS'],
       port:                 '587',
       authentication:       :plain,
       user_name:            ENV['SENDGRID_USERNAME'],
       password:             ENV['SENDGRID_PASSWORD'],
-      domain:               'heroku.com',
+      domain:               ENV['SENDGRID_DOMAIN'],
       enable_starttls_auto: true
   }
 end
