@@ -51,11 +51,12 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'dotenv-rails'
 gem "simple_calendar", "~> 2.0"
-gem 'rmagick'
+gem 'mini_magick'
 gem 'ranked-model', '0.4.0'
 gem 'jquery-turbolinks'
 gem 'chartkick', '3.0.2'
 gem 'chartable'
+gem 'unicorn', '5.4.0'
 # Reduces boot times through caching; required in config/boot.rb#
 gem 'bootsnap', '>= 1.1.0', require: false
 
