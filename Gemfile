@@ -59,6 +59,7 @@ gem 'chartable'
 gem 'therubyracer', :platforms => :ruby
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
+gem 'unicorn', '5.4.1'
 # Reduces boot times through caching; required in config/boot.rb#
 gem 'bootsnap', '>= 1.1.0', require: false
 
