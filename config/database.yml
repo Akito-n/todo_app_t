@@ -18,7 +18,7 @@
 default: &default
   username: t_db_admin
   password: cHX8gtA8
-  #host: todo-app.cuhjxrfqw7io.ap-northeast-1.rds.amazonaws.com
+  host: todo-app.cuhjxrfqw7io.ap-northeast-1.rds.amazonaws.com
   timeout: 5000
   adapter: postgresql
   encoding: unicode
@@ -29,7 +29,6 @@ default: &default
 development:
   <<: *default
   database: todo_app_development
-
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -86,4 +85,3 @@ test:
 production:
   <<: *default
   database: todo_app_production
- #password: <%= ENV['TODO_APP_DATABASE_PASSWORD'] %>
