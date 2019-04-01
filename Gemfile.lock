@@ -64,6 +64,7 @@ GEM
       io-like (~> 0.3.0)
     arel (9.0.0)
     bcrypt (3.1.12)
+    bcrypt_pbkdf (1.0.0)
     bindex (0.5.0)
     bootsnap (1.4.1)
       msgpack (~> 1.0)
@@ -379,6 +380,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   bcrypt (~> 3.1.7)
+  bcrypt_pbkdf
   bootsnap (>= 1.1.0)
   bullet
   bulma-rails (~> 0.7.4)

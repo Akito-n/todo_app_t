@@ -57,6 +57,7 @@ gem 'jquery-turbolinks'
 gem 'chartkick', '3.0.2'
 gem 'chartable'
 gem 'ed25519'
+gem 'bcrypt_pbkdf'
 # Reduces boot times through caching; required in config/boot.rb#
 gem 'bootsnap', '>= 1.1.0', require: false
 
