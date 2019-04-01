@@ -56,6 +56,7 @@ gem 'ranked-model', '0.4.0'
 gem 'jquery-turbolinks'
 gem 'chartkick', '3.0.2'
 gem 'chartable'
+gem 'therubyracer', :platforms => :ruby
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
 # Reduces boot times through caching; required in config/boot.rb#
