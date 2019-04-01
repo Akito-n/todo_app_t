@@ -57,6 +57,7 @@ gem 'jquery-turbolinks'
 gem 'chartkick', '3.0.2'
 gem 'chartable'
 gem 'unicorn', '5.4.0'
+gem 'whenever'
 # Reduces boot times through caching; required in config/boot.rb#
 gem 'bootsnap', '>= 1.1.0', require: false
 
@@ -78,6 +79,10 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry-byebug'
   gem 'bullet'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
 end
 
 group :test do
