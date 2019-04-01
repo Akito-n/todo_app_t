@@ -17,7 +17,7 @@
 #
 default: &default
   username: t_db_admin
-  password: cHX8gtA8
+  password: <%= ENV[DATABASE_PASSWORD] %>
   #host: todo-app.cuhjxrfqw7io.ap-northeast-1.rds.amazonaws.com
   timeout: 5000
   adapter: postgresql
