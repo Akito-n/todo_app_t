@@ -51,7 +51,7 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'dotenv-rails'
 gem "simple_calendar", "~> 2.0"
-gem 'rmagick'
+gem 'mini_magick'
 gem 'ranked-model', '0.4.0'
 gem 'jquery-turbolinks'
 gem 'chartkick', '3.0.2'
