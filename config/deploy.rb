@@ -2,7 +2,7 @@
 lock '3.11.0'
 
 # デプロイするアプリケーション名
-set :application, 'mumu'
+set :application, 'todo_app_t'
 
 # cloneするgitのレポジトリ
 set :repo_url, 'https://github.com/Akito-n/todo_app_t.git'
