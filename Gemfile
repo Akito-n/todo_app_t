@@ -56,6 +56,7 @@ gem 'ranked-model', '0.4.0'
 gem 'jquery-turbolinks'
 gem 'chartkick', '3.0.2'
 gem 'chartable'
+gem 'ed25519'
 # Reduces boot times through caching; required in config/boot.rb#
 gem 'bootsnap', '>= 1.1.0', require: false
 

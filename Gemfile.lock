@@ -124,6 +124,7 @@ GEM
     dotenv-rails (2.7.1)
       dotenv (= 2.7.1)
       railties (>= 3.2, < 6.1)
+    ed25519 (1.2.4)
     enum_help (0.0.17)
       activesupport (>= 3.0.0)
     erubi (1.8.0)
@@ -393,6 +394,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   dotenv-rails
+  ed25519
   enum_help
   factory_bot_rails
   faker
