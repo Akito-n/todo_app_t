@@ -11,7 +11,7 @@ set :repo_url, 'git@github.com:Akito-n/todo_app_t.git'
 set :branch, 'aws_deploy'
 
 # deploy先のディレクトリ。
-set :deploy_to, '/var/www/rails/todo_app_t'
+set :deploy_to, '/var/www/todo_app_t'
 
 # シンボリックリンクをはるファイル。(※後述)
 set :linked_files, fetch(:linked_files, []).push('config/settings.yml')
