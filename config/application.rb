@@ -13,6 +13,7 @@ module TodoApp
     config.generators.templete_engine = :slim
 
     config.time_zone = 'Tokyo'
+    config.active_job.queue_adapter = :sidekiq
 
     # config.active_record.default_timezone = :local
 

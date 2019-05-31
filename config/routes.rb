@@ -1,4 +1,9 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
+
+  mount Sidekiq::Web, at: "/sidekiq"
+
+
   get 'calender/index'
   ActiveAdmin.routes(self)
   namespace :admin do
