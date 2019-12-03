@@ -54,7 +54,7 @@ gem "simple_calendar", "~> 2.0"
 gem 'rmagick'
 gem 'ranked-model', '0.4.0'
 gem 'jquery-turbolinks'
-gem 'chartkick', '3.0.2'
+gem 'chartkick', '3.3.0'
 gem 'chartable'
 # Reduces boot times through caching; required in config/boot.rb#
 gem 'bootsnap', '>= 1.1.0', require: false
